@@ -11,12 +11,12 @@ import {
 
 export default function App() {
     return (
-        <BrowserRouter >
+        <BrowserRouter>
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/Projects" element={<ProjectIndex />}>
-                    <Route index element={<Projects />} />
+                    <Route path="" element={<Projects />} />
                     <Route path=":projShort" element={<Project />} />
                 </Route>
             </Routes>
