@@ -3,7 +3,7 @@ import React from "react";
 export default function Home() {
     return (
         <div className="home">
-            <div className="bg-image" style={{
+            <div className="bg-image mb-3" style={{
                 backgroundImage: "url('https://lh3.googleusercontent.com/pw/AM-JKLVeLzJ9GtiOSqmwtHOLzlT6CYBGyIim38_dHXeVIQ7viIO-EB-MnNK75TSq5-iCxmK5_Q2AXUl-0PG353LwzxsaSVgvFUt3J2L7tcklWo4M2qml0fSHwbgS6d1rwibH-9fYjPk7dbQzKqO6dtiQ9V1ejQ=w1080-h533-no')",
                 height: "50vh",
                 backgroundPosition: "center",
@@ -15,14 +15,16 @@ export default function Home() {
                     </div>
             </div>
             <div className="container">
-                <h1>Education</h1>
-                <p>
-                    Education Stuff
-                </p>
-                <h1>Work Experience</h1>
-                <p>
-                    Work Stuff
-                </p>
+                <div className="bg-body shadow-sm p-3 mb-3">
+                    <h1>Education</h1>
+                    <p>
+                        Education Stuff
+                    </p>
+                    <h1>Work Experience</h1>
+                    <p>
+                        Work Stuff
+                    </p>
+                </div>
             </div>
         </div>
     );
