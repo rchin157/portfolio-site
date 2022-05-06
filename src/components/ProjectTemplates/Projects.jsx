@@ -9,7 +9,7 @@ export default function Projects() {
             <div className="container">
                 {projects.map((proj) => (
                     <div key={proj.id}>
-                        <Link to={`/projects/${proj.id}`}>
+                        <Link to={`/Projects/${proj.id}`}>
                             <div className='row align-items-center my-5'>
                                 <div className='col-lg-7'>
                                     <img

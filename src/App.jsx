@@ -4,6 +4,7 @@ import {
     Navigation,
     Footer,
     Home,
+    ProjectIndex,
     Projects,
     Project,
   } from './components';
@@ -14,7 +15,8 @@ export default function App() {
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/Projects" element={<Projects />}>
+                <Route path="/Projects" element={<ProjectIndex />}>
+                    <Route index element={<Projects />} />
                     <Route path=":projShort" element={<Project />} />
                 </Route>
             </Routes>
