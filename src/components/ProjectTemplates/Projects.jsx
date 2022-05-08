@@ -1,11 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Manager from "../BOIDProject/Manager";
 import { getProjs } from "../ProjectData/ProjData";
 
 export default function Projects() {
     let projects = getProjs();
     return (
         <div className="home">
+            <Manager>
+                <div className="position-relative top-50 start-50 translate-middle">
+                    <h1 className="display-1 text-center">Projects</h1>
+                </div>
+            </Manager>
             <div className="container">
                 {projects.map((proj) => (
                     <div key={proj.id}>

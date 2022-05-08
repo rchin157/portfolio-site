@@ -1,5 +1,4 @@
 import React from "react";
-import BTest from "./BOIDProject/Manager";
 
 export default function Home() {
     return (
@@ -29,7 +28,6 @@ export default function Home() {
                     </p>
                 </div>
             </div>
-            <BTest />
         </div>
     );
 }
