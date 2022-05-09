@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Manager from "../BOIDProject/Manager";
+import Boids from "../BOIDProject/Manager";
 import { getProjs } from "../ProjectData/ProjData";
 
 export default function Projects() {
     let projects = getProjs();
     return (
         <div className="home">
-            <Manager>
-                <div className="position-relative top-50 start-50 translate-middle">
+            <div style={{height: "50vh"}}>
+                <Boids />
+                <div className="position-relative p-3 top-50 start-50 translate-middle bg-light rounded" style={{width: "max-content"}}>
                     <h1 className="display-1 text-center">Projects</h1>
                 </div>
-            </Manager>
+            </div>
             <div className="container">
                 {projects.map((proj) => (
                     <div key={proj.id}>

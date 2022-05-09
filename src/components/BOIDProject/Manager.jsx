@@ -37,7 +37,6 @@ export default function Manager() {
             canvas.height = height * ratio;
             console.log(canvas.width, canvas.height);
             setup();
-            draw();
         }
 
         function setup() {
@@ -70,6 +69,7 @@ export default function Manager() {
             window.addEventListener("resize", reset);
         }
         reset();
+        draw();
         return () => {
             cancelAnimationFrame(requestId);
             if(!isMobile) {
@@ -79,7 +79,9 @@ export default function Manager() {
     }, [])
 
     return (
-        <canvas id="boid-manager" ref={canvasRef} />
+        <div style={{position: "relative"}}>
+            <canvas id="boid-manager" ref={canvasRef} style={{position: "absolute", zIndex: "-1", top: "0px", left: "0px", width: "100vw", height: "50vh"}} />
+        </div>
     );
 }
 
