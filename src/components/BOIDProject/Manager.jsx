@@ -80,7 +80,7 @@ export default function Manager() {
 
     return (
         <div style={{position: "relative"}}>
-            <canvas id="boid-manager" ref={canvasRef} style={{position: "absolute", zIndex: "-1", top: "0px", left: "0px", width: "100vw", height: "50vh"}} />
+            <canvas id="boid-manager" ref={canvasRef} style={{position: "absolute", zIndex: "-1", top: "0px", left: "0px", width: "100vw", height: "45vh"}} />
         </div>
     );
 }

@@ -18,7 +18,7 @@ export default function Home() {
                     </div>
             </div>
             */}
-            <div style={{ height: "50vh" }}>
+            <div style={{ height: "45vh" }}>
                 <Banner pattern={new SC()} />
                 <div className="position-relative p-3 top-50 start-50 translate-middle bg-white rounded shadow" style={{ width: "max-content" }}>
                     <h1 className="display-1 text-center">Rylan Chin</h1>
