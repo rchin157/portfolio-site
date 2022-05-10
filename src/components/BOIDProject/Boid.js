@@ -3,7 +3,7 @@ export default class Boid {
         0: 'aqua',
         1: 'fuchsia',
         2: 'yellow',
-        3: 'black',
+        3: 'orange',
     };
 
     constructor(x, y, dx, dy, sight = 75, coherence = 0.3, separation = 0.5, alignment = 0.5) {

@@ -1,9 +1,9 @@
 export default class Obstacle {
     static colors = {
-        0: 'gray',
+        0: 'darkorange',
         1: 'red',
         2: 'blue',
-        3: 'green',
+        3: 'chartreuse',
     };
 
     constructor(x, y, rad) {

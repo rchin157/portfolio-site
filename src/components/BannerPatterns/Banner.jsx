@@ -1,18 +1,15 @@
 import React, { useEffect, useRef } from "react";
-import Boid from "./Boid";
-import './boid.css';
-import Obstacle from "./Obstacle";
+import "./banner.css"
 
-export default function Manager() {
+export default function Banner(props) {
     const canvasRef = useRef(null);
+    let pattern = props.pattern;
 
     useEffect(() => {
         let canvas = canvasRef.current;
         let context = canvas.getContext('2d');
 
-        let requestId, numBoids = 30, numObs = 6;
-        let boids = [];
-        let obstacles = [];
+        let requestId = 0;
 
         let isMobile = false;
         if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
@@ -23,8 +20,6 @@ export default function Manager() {
         function reset() {
             canvas = canvasRef.current;
             context = canvas.getContext('2d');
-            boids = [];
-            obstacles = [];
             let ratio = getPixelRatio(context);
             let width = getComputedStyle(canvas)
                 .getPropertyValue('width')
@@ -35,33 +30,11 @@ export default function Manager() {
             
             canvas.width = width * ratio;
             canvas.height = height * ratio;
-            //console.log(canvas.width, canvas.height);
-            setup();
-        }
-
-        function setup() {
-            for (let i = 0; i < numBoids; i++) {
-                let newX = Math.floor(Math.random() * canvas.width);
-                let newY = Math.floor(Math.random() * canvas.height);
-                boids.push(new Boid(newX, newY, Math.random() * 2 - 1, Math.random() * 2 - 1));
-            }
-            for (let i = 0; i < numObs; i++) {
-                let newX = Math.floor(Math.random() * (canvas.width - canvas.width / 2)) + canvas.width / 4;
-                let newY = Math.floor(Math.random() * (canvas.height - canvas.height / 2)) + canvas.height / 4;
-                let newRad = Math.floor(Math.random() * 10) + 20;
-                obstacles.push(new Obstacle(newX, newY, newRad));
-            }
+            pattern.setup(canvas);
         }
 
         function draw() {
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < numObs; i++) {
-                obstacles[i].draw(context);
-            }
-            for (let i = 0; i < numBoids; i++) {
-                boids[i].update(boids, obstacles, canvas);
-                boids[i].draw(context);
-            }
+            pattern.draw(context, canvas, requestId);
             requestId = requestAnimationFrame(draw);
         }
 
@@ -76,11 +49,11 @@ export default function Manager() {
                 window.removeEventListener("resize", reset);
             }
         };
-    }, [])
+    })
 
     return (
         <div style={{position: "relative"}}>
-            <canvas id="boid-manager" ref={canvasRef} style={{position: "absolute", zIndex: "-1", top: "0px", left: "0px", width: "100vw", height: "50vh"}} />
+            <canvas id="banner-manager" ref={canvasRef} style={{position: "absolute", zIndex: "-1", top: "0px", left: "0px", width: "100vw", height: "50vh"}} />
         </div>
     );
 }

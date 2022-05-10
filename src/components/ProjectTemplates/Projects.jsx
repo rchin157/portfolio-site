@@ -9,7 +9,7 @@ export default function Projects() {
         <div className="home">
             <div style={{height: "50vh"}}>
                 <Boids />
-                <div className="position-relative p-3 top-50 start-50 translate-middle bg-light rounded" style={{width: "max-content"}}>
+                <div className="position-relative p-3 top-50 start-50 translate-middle bg-white rounded shadow" style={{width: "max-content"}}>
                     <h1 className="display-1 text-center">Projects</h1>
                 </div>
             </div>

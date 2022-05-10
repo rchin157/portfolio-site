@@ -6,14 +6,29 @@ export default function Footer() {
             <footer className="py-5 bg-light bottom">
                 <div className="container py-3">
                     <div className="row">
-                        <div className="col-lg-6">
-                            Blurb
+                        <div className="col-lg-5">
+                            <h5>About this site</h5>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc imperdiet nisi sapien, ut suscipit odio tempus quis.
+                                Nunc dictum turpis vestibulum turpis iaculis volutpat.
+                            </p>
                         </div>
-                        <div className="col-6 col-lg-3">
+                        <div className="col-6 col-lg-2 offset-lg-3">
                             <h5>Navigation</h5>
+                            <ul className="list-unstyled">
+                                <li className="mb-2">nav 1</li>
+                                <li className="mb-2">nav 2</li>
+                                <li className="mb-2">nav 3</li>
+                            </ul>
                         </div>
-                        <div className="col-6 col-lg-3">
+                        <div className="col-6 col-lg-2">
                             <h5>My Links</h5>
+                            <ul className="list-unstyled">
+                                <li className="mb-2">link 1</li>
+                                <li className="mb-2">link 2</li>
+                                <li className="mb-2">link 3</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
