@@ -18,7 +18,9 @@ export default function App() {
                 <Route path="/Projects" element={<ProjectIndex />}>
                     <Route path="" element={<Projects />} />
                     <Route path=":projShort" element={<Project />} />
+                    <Route path="*" element={<Home />} />
                 </Route>
+                <Route path="*" element={<Home />} />
             </Routes>
             <Footer />
         </BrowserRouter>
