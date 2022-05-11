@@ -25,30 +25,74 @@ export default function Home() {
                 </div>
             </div>
             <div className="container">
-                <div className="p-3 mb-3">
+                <div className="p-3">
                     <h1>Education</h1>
+                    <div className="row">
+                        <div className="col-12 col-lg-6">
+                            <h4>University of Alberta</h4>
+                        </div>
+                        <div className="col-12 col-lg-6">
+                            <h4 className="text-lg-end">Fall 2018-Present</h4>
+                        </div>
+                    </div>
                     <p>
-                        Education Stuff
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nunc erat nisi, porta quis blandit vitae, luctus quis erat.
-                        Pellentesque mollis a tortor eget facilisis. In id aliquam magna.
-                        Maecenas id dui hendrerit, laoreet dui ut, tempor purus.
-                        Curabitur in dui porttitor, aliquet mauris at, tincidunt nibh.
-                        Donec non lorem at neque dignissim viverra.
-                        Phasellus consectetur mauris eget nisl egestas volutpat.
-                        Mauris interdum metus ut libero tristique dapibus. Fusce et dapibus libero.
+                        Bachelor of Science with Specialization<br />
+                        Computing Science - Software Practice Specialization<br />
+                        Cumulative GPA: 3.86
                     </p>
                 </div>
-                <div className="p-3 mb-3">
-                    <h1>Work Experience</h1>
-                    <p>
-                        Work Stuff
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla molestie ex ipsum, non viverra ligula rhoncus ut.
-                        Vestibulum vestibulum facilisis mauris eu euismod.
-                        Donec elementum lacinia aliquet. Vestibulum hendrerit orci at sapien consectetur, nec pulvinar tellus facilisis.
-                        Maecenas dapibus commodo tellus, at lacinia erat iaculis et.
-                    </p>
+                <div className="p-3">
+                    <h1>Experience</h1>
+                    <div className="row">
+                        <div className="col-12 col-lg-4">
+                            <h4>Research Assistant</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-center">Centre for Smart Transportation</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-end">September 2021-April 2022</h4>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>list item 1 ajksd kasdj ai ii idf sa fdasdfasf</li>
+                        <li>list item 2 df sa fdasdfasf ff sasf ff sasas</li>
+                    </ul>
+                    <div className="row">
+                        <div className="col-12 col-lg-4">
+                            <h4>Computer Science Undergrad TA</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-center">University of Alberta</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-end">September 2020-June 2021</h4>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>list item 1 ajksd kasdj ai ii idf sa fdasdfasf</li>
+                        <li>list item 2 df sa fdasdfasf ff sasf ff sasas</li>
+                    </ul>
+                    <div className="row">
+                        <div className="col-12 col-lg-4">
+                            <h4>Undergrad Researcher</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-center">University of Alberta</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-end">May 2020-August 2020</h4>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>list item 1 ajksd kasdj ai ii idf sa fdasdfasf</li>
+                        <li>list item 2 df sa fdasdfasf ff sasf ff sasas</li>
+                    </ul>
+                </div>
+                <div className="p-3">
+                    <h1>Languages and Technologies</h1>
+                    <h4>Languages</h4>
+                    <h4>Technologies</h4>
                 </div>
             </div>
         </div>

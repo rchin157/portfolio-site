@@ -7,6 +7,7 @@ import {
     ProjectIndex,
     Projects,
     Project,
+    About,
     NoMatch,
   } from './components';
 
@@ -21,6 +22,7 @@ export default function App() {
                     <Route path=":projShort" element={<Project />} />
                     <Route path="*" element={<NoMatch />} />
                 </Route>
+                <Route path="/About" element={<About />} />
                 <Route path="*" element={<NoMatch />} />
             </Routes>
             <Footer />

@@ -21,6 +21,11 @@ export default function Navigation() {
                                     Projects
                                 </NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/About">
+                                    About
+                                </NavLink>
+                            </li>
                         </ul>
                     </div>
                 </div>
