@@ -2,6 +2,8 @@ import React from "react";
 import Banner from "./BannerPatterns/Banner";
 import SC from "./BannerPatterns/SimplexColours";
 
+import nsercrapaper from "../data/32dafaad-c032-4dd1-9d10-4dd607e6d179.pdf";
+
 export default function Home() {
     return (
         <div className="home">
@@ -70,8 +72,10 @@ export default function Home() {
                         </div>
                     </div>
                     <ul>
-                        <li>list item 1 ajksd kasdj ai ii idf sa fdasdfasf</li>
-                        <li>list item 2 df sa fdasdfasf ff sasf ff sasas</li>
+                        <li>Served as a teaching assistant for CMPUT 175 and 201, focusing on fundamentals and C programming respectively.</li>
+                        <li>Instructed lab sessions and provided help with programming excercises to students.</li>
+                        <li>Wrote and/or co-wrote major algorithm assignment solutions (CMPUT 201).</li>
+                        <li>Assisted 100+ students via class forums.</li>
                     </ul>
                     <div className="row">
                         <div className="col-12 col-lg-4">
@@ -85,8 +89,16 @@ export default function Home() {
                         </div>
                     </div>
                     <ul>
-                        <li>list item 1 ajksd kasdj ai ii idf sa fdasdfasf</li>
-                        <li>list item 2 df sa fdasdfasf ff sasf ff sasas</li>
+                        <li>NSERC undergrad research grant position.</li>
+                        <li>
+                            Implemented the groups research paper as both an exact algorithm and it's proposed FPTAS which used dynamic
+                            programming and employed the sparsing technique. Standard C was used throughout.
+                        </li>
+                        <li>Optimized for different aspects such as memory and runtime.</li>
+                        <li>Supervised junior team member who particpated as part of the Highschool Internship Program.</li>
+                        <li>The paper went on to be published and can be viewed by clicking 
+                            <a href={nsercrapaper} target="_blank" rel="noopener noreferrer"> here</a>.
+                        </li>
                     </ul>
                 </div>
                 <div className="p-3">
