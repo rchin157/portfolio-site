@@ -7,19 +7,6 @@ import nsercrapaper from "../data/32dafaad-c032-4dd1-9d10-4dd607e6d179.pdf";
 export default function Home() {
     return (
         <div className="home">
-            {/*
-            <div className="main-masthead mb-3" style={{
-                backgroundImage: "url('https://lh3.googleusercontent.com/pw/AM-JKLVeLzJ9GtiOSqmwtHOLzlT6CYBGyIim38_dHXeVIQ7viIO-EB-MnNK75TSq5-iCxmK5_Q2AXUl-0PG353LwzxsaSVgvFUt3J2L7tcklWo4M2qml0fSHwbgS6d1rwibH-9fYjPk7dbQzKqO6dtiQ9V1ejQ=w1080-h533-no')",
-                height: "50vh",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                }}>
-                    <div className="position-relative top-50 start-50 translate-middle text-white">
-                        <h1 className="display-1 text-center">Rylan Chin</h1>
-                    </div>
-            </div>
-            */}
             <div style={{ height: "45vh" }}>
                 <Banner pattern={new SC()} />
                 <div className="position-relative p-3 top-50 start-50 translate-middle bg-white rounded shadow" style={{ width: "max-content" }}>
@@ -57,8 +44,11 @@ export default function Home() {
                         </div>
                     </div>
                     <ul>
-                        <li>list item 1 ajksd kasdj ai ii idf sa fdasdfasf</li>
-                        <li>list item 2 df sa fdasdfasf ff sasf ff sasas</li>
+                        <li>Worked on a number of academic papers, both on editing the papers themselves as well as their underlying software projects.</li>
+                        <li>Worked on and improved long-running projects.</li>
+                        <li>Reimplemented a project for finding road clearance and improved runtime from tens of hours to minutes.</li>
+                        <li>Created a tool for computing pointcloud features such as planarity, gradient, etc.</li>
+                        <li>Peer reviewed academic papers semi-regularly.</li>
                     </ul>
                     <div className="row">
                         <div className="col-12 col-lg-4">
@@ -104,6 +94,35 @@ export default function Home() {
                 <div className="p-3">
                     <h1>Languages and Technologies</h1>
                     <h4>Languages</h4>
+                    <ul className="list-unstyled">
+                        <li className="list-item">
+                            Python<br />
+                        </li>
+                        <li className="list-item">
+                            Javascript
+                        </li>
+                        <li className="list-item">
+                            Java
+                        </li>
+                        <li className="list-item">
+                            Matlab
+                        </li>
+                        <li className="list-item">
+                            C
+                        </li>
+                        <li className="list-item">
+                            SQL
+                        </li>
+                        <li className="list-item">
+                            HTML/CSS
+                        </li>
+                        <li className="list-item">
+                            VBA
+                        </li>
+                        <li className="list-item">
+                            Assembly
+                        </li>
+                    </ul>
                     <h4>Technologies</h4>
                 </div>
             </div>
