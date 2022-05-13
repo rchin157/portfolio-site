@@ -2,53 +2,128 @@ import React from "react";
 import Banner from "./BannerPatterns/Banner";
 import SC from "./BannerPatterns/SimplexColours";
 
+import nsercrapaper from "../data/32dafaad-c032-4dd1-9d10-4dd607e6d179.pdf";
+
 export default function Home() {
     return (
         <div className="home">
-            {/*
-            <div className="main-masthead mb-3" style={{
-                backgroundImage: "url('https://lh3.googleusercontent.com/pw/AM-JKLVeLzJ9GtiOSqmwtHOLzlT6CYBGyIim38_dHXeVIQ7viIO-EB-MnNK75TSq5-iCxmK5_Q2AXUl-0PG353LwzxsaSVgvFUt3J2L7tcklWo4M2qml0fSHwbgS6d1rwibH-9fYjPk7dbQzKqO6dtiQ9V1ejQ=w1080-h533-no')",
-                height: "50vh",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                }}>
-                    <div className="position-relative top-50 start-50 translate-middle text-white">
-                        <h1 className="display-1 text-center">Rylan Chin</h1>
-                    </div>
-            </div>
-            */}
-            <div style={{ height: "50vh" }}>
+            <div style={{ height: "45vh" }}>
                 <Banner pattern={new SC()} />
                 <div className="position-relative p-3 top-50 start-50 translate-middle bg-white rounded shadow" style={{ width: "max-content" }}>
                     <h1 className="display-1 text-center">Rylan Chin</h1>
                 </div>
             </div>
             <div className="container">
-                <div className="p-3 mb-3">
+                <div className="p-3">
                     <h1>Education</h1>
+                    <div className="row">
+                        <div className="col-12 col-lg-6">
+                            <h4>University of Alberta</h4>
+                        </div>
+                        <div className="col-12 col-lg-6">
+                            <h4 className="text-lg-end">Fall 2018-Present</h4>
+                        </div>
+                    </div>
                     <p>
-                        Education Stuff
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nunc erat nisi, porta quis blandit vitae, luctus quis erat.
-                        Pellentesque mollis a tortor eget facilisis. In id aliquam magna.
-                        Maecenas id dui hendrerit, laoreet dui ut, tempor purus.
-                        Curabitur in dui porttitor, aliquet mauris at, tincidunt nibh.
-                        Donec non lorem at neque dignissim viverra.
-                        Phasellus consectetur mauris eget nisl egestas volutpat.
-                        Mauris interdum metus ut libero tristique dapibus. Fusce et dapibus libero.
+                        Bachelor of Science with Specialization<br />
+                        Computing Science - Software Practice Specialization<br />
+                        Cumulative GPA: 3.86
                     </p>
                 </div>
-                <div className="p-3 mb-3">
-                    <h1>Work Experience</h1>
-                    <p>
-                        Work Stuff
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla molestie ex ipsum, non viverra ligula rhoncus ut.
-                        Vestibulum vestibulum facilisis mauris eu euismod.
-                        Donec elementum lacinia aliquet. Vestibulum hendrerit orci at sapien consectetur, nec pulvinar tellus facilisis.
-                        Maecenas dapibus commodo tellus, at lacinia erat iaculis et.
-                    </p>
+                <div className="p-3">
+                    <h1>Experience</h1>
+                    <div className="row">
+                        <div className="col-12 col-lg-4">
+                            <h4>Research Assistant</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-center">Centre for Smart Transportation</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-end">September 2021-April 2022</h4>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Worked on a number of academic papers, both on editing the papers themselves as well as their underlying software projects.</li>
+                        <li>Worked on and improved long-running projects.</li>
+                        <li>Reimplemented a project for finding road clearance and improved runtime from tens of hours to minutes.</li>
+                        <li>Created a tool for computing pointcloud features such as planarity, gradient, etc.</li>
+                        <li>Peer reviewed academic papers semi-regularly.</li>
+                    </ul>
+                    <div className="row">
+                        <div className="col-12 col-lg-4">
+                            <h4>Computer Science Undergrad TA</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-center">University of Alberta</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-end">September 2020-June 2021</h4>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Served as a teaching assistant for CMPUT 175 and 201, focusing on fundamentals and C programming respectively.</li>
+                        <li>Instructed lab sessions and provided help with programming excercises to students.</li>
+                        <li>Wrote and/or co-wrote major algorithm assignment solutions (CMPUT 201).</li>
+                        <li>Assisted 100+ students via class forums.</li>
+                    </ul>
+                    <div className="row">
+                        <div className="col-12 col-lg-4">
+                            <h4>Undergrad Researcher</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-center">University of Alberta</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-end">May 2020-August 2020</h4>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>NSERC undergrad research grant position.</li>
+                        <li>
+                            Implemented the groups research paper as both an exact algorithm and it's proposed FPTAS which used dynamic
+                            programming and employed the sparsing technique. Standard C was used throughout.
+                        </li>
+                        <li>Optimized for different aspects such as memory and runtime.</li>
+                        <li>Supervised junior team member who particpated as part of the Highschool Internship Program.</li>
+                        <li>The paper went on to be published and can be viewed by clicking 
+                            <a href={nsercrapaper} target="_blank" rel="noopener noreferrer"> here</a>.
+                        </li>
+                    </ul>
+                </div>
+                <div className="p-3">
+                    <h1>Languages and Technologies</h1>
+                    <h4>Languages</h4>
+                    <ul className="list-unstyled">
+                        <li className="list-item">
+                            Python<br />
+                        </li>
+                        <li className="list-item">
+                            Javascript
+                        </li>
+                        <li className="list-item">
+                            Java
+                        </li>
+                        <li className="list-item">
+                            Matlab
+                        </li>
+                        <li className="list-item">
+                            C
+                        </li>
+                        <li className="list-item">
+                            SQL
+                        </li>
+                        <li className="list-item">
+                            HTML/CSS
+                        </li>
+                        <li className="list-item">
+                            VBA
+                        </li>
+                        <li className="list-item">
+                            Assembly
+                        </li>
+                    </ul>
+                    <h4>Technologies</h4>
                 </div>
             </div>
         </div>

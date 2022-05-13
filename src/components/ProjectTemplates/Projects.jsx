@@ -7,7 +7,7 @@ export default function Projects() {
     let projects = getProjs();
     return (
         <div className="home">
-            <div style={{height: "50vh"}}>
+            <div style={{height: "45vh"}}>
                 <Boids />
                 <div className="position-relative p-3 top-50 start-50 translate-middle bg-white rounded shadow" style={{width: "max-content"}}>
                     <h1 className="display-1 text-center">Projects</h1>

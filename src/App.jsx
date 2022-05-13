@@ -7,6 +7,8 @@ import {
     ProjectIndex,
     Projects,
     Project,
+    About,
+    NoMatch,
   } from './components';
 
 export default function App() {
@@ -18,9 +20,10 @@ export default function App() {
                 <Route path="/Projects" element={<ProjectIndex />}>
                     <Route path="" element={<Projects />} />
                     <Route path=":projShort" element={<Project />} />
-                    <Route path="*" element={<Home />} />
+                    <Route path="*" element={<NoMatch />} />
                 </Route>
-                <Route path="*" element={<Home />} />
+                <Route path="/About" element={<About />} />
+                <Route path="*" element={<NoMatch />} />
             </Routes>
             <Footer />
         </HashRouter>

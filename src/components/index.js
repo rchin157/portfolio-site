@@ -4,3 +4,5 @@ export { default as Home } from "./Home";
 export { default as ProjectIndex } from "./ProjectTemplates/ProjectIndex";
 export { default as Projects } from "./ProjectTemplates/Projects";
 export { default as Project } from "./ProjectTemplates/Project";
+export { default as NoMatch } from "./NoMatch";
+export { default as About} from "./About"

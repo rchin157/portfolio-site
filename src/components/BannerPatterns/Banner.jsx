@@ -53,7 +53,7 @@ export default function Banner(props) {
 
     return (
         <div style={{position: "relative"}}>
-            <canvas id="banner-manager" ref={canvasRef} style={{position: "absolute", zIndex: "-1", top: "0px", left: "0px", width: "100vw", height: "50vh"}} />
+            <canvas id="banner-manager" ref={canvasRef} style={{position: "absolute", zIndex: "-1", top: "0px", left: "0px", width: "100vw", height: "45vh", maxWidth: "100%"}} />
         </div>
     );
 }
