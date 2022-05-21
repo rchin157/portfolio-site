@@ -8,13 +8,14 @@ export default function ComparisonSlider({topImg, botImg,}) {
     const handleRef = useRef();
 
     const setPositioning = useCallback((x) => {
-        const {left, width } = topImgRef.current.getBoundingClientRect();
+        const { left, width } = topImgRef.current.getBoundingClientRect();
         const handleWidth = handleRef.current.offsetWidth;
 
         if ((x >= left) && (x <= width + left - handleWidth)) {
+            console.log("triggered")
             handleRef.current.style.left = `${(x - left) / width * 100}%`;
             topImgRef.current.style.clipPath =
-                `inset(0 ${100 - (x - left) / width * 100}% 0 0)`;
+                `inset(0 ${100 - ((x - left) / width) * 100}% 0 0)`;
         }
     }, []);
 
