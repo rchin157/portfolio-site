@@ -10,6 +10,7 @@
 .comp-slider {
     margin: 50px auto;
     max-width: max-content;
+    min-width: 100px;
     position: relative;
     overflow: hidden;
 }
