@@ -19,17 +19,17 @@ export default function Footer() {
                             <h5>Navigation</h5>
                             <ul className="list-unstyled">
                                 <li className="nav-item mb-2">
-                                    <NavLink to="/">
+                                    <NavLink className="stealthlink" to="/">
                                         Home
                                     </NavLink>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <NavLink to="/Projects">
+                                    <NavLink className="stealthlink" to="/Projects">
                                         Projects
                                     </NavLink>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <NavLink to="/About">
+                                    <NavLink className="stealthlink" to="/About">
                                         About
                                     </NavLink>
                                 </li>
@@ -39,10 +39,10 @@ export default function Footer() {
                             <h5>My Links</h5>
                             <ul className="list-unstyled">
                                 <li className="nav-item mb-2">
-                                    <a href="https://github.com/rchin157">GitHub</a>
+                                    <a className="stealthlink" href="https://github.com/rchin157">GitHub</a>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <a href="https://www.linkedin.com/in/rylan-chin-06475b1a3/">LinkedIn</a>
+                                    <a className="stealthlink" href="https://www.linkedin.com/in/rylan-chin-06475b1a3/">LinkedIn</a>
                                 </li>
                             </ul>
                         </div>

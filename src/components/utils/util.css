@@ -1,0 +1,54 @@
+.comp-item img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    -moz-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.comp-slider {
+    margin: 50px auto;
+    max-width: max-content;
+    position: relative;
+    overflow: hidden;
+}
+
+.comp-item {
+    overflow: hidden;
+}
+
+.comp-item.top {
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+.comp-item.top img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.handle {
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background: white;
+    z-index: 3;
+    cursor: col-resize;
+    top: 0;
+}
+
+.handle svg {
+    display: block;
+    position: absolute;
+    top: calc(50% - 15px);
+    right: calc(50% - 15px);
+    height: 30px;
+    width: 30px;
+    background: white;
+    border-radius: 5px;
+    padding: 2px;
+}
