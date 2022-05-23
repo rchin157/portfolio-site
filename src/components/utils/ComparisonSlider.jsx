@@ -12,7 +12,6 @@ export default function ComparisonSlider({topImg, botImg,}) {
         const handleWidth = handleRef.current.offsetWidth;
 
         if ((x >= left) && (x <= width + left - handleWidth)) {
-            console.log("triggered")
             handleRef.current.style.left = `${(x - left) / width * 100}%`;
             topImgRef.current.style.clipPath =
                 `inset(0 ${100 - ((x - left) / width) * 100}% 0 0)`;
