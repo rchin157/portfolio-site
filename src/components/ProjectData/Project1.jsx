@@ -4,7 +4,8 @@ import ComparisonSlider from '../utils/ComparisonSlider';
 import sScanColour from "../../data/ProjectMedia/FeatureProcessor/ScolorShot.png";
 import sScanGrad from "../../data/ProjectMedia/FeatureProcessor/SgradShot.png";
 
-
+import sTrimLinearity from "../../data/ProjectMedia/FeatureProcessor/strimlinearity.png"
+import sTrimCurvature from "../../data/ProjectMedia/FeatureProcessor/strimcurvature.png"
 
 export default function Project() {
     return (
@@ -35,11 +36,11 @@ export default function Project() {
                 </p>
                 <div className="row mb-2">
                     <div className="col-12 col-lg-6 text-center">
-                        <img className="img-fluid" src={sScanColour} alt="linearity" />
+                        <img className="img-fluid" src={sTrimLinearity} alt="linearity" />
                         <span><em>Linearity</em></span>
                     </div>
                     <div className="col-12 col-lg-6 text-center">
-                        <img className="img-fluid" src={sScanGrad} alt="gaussian curvature" />
+                        <img className="img-fluid" src={sTrimCurvature} alt="gaussian curvature" />
                         <span><em>Gaussian Curvature</em></span>
                     </div>
                 </div>
