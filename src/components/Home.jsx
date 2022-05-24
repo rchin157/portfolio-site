@@ -21,7 +21,7 @@ export default function Home() {
                             <h4>University of Alberta</h4>
                         </div>
                         <div className="col-12 col-lg-6">
-                            <h4 className="text-lg-end">Fall 2018-Present</h4>
+                            <h4 className="text-lg-end">Fall 2018-Present(Spring 2023 Graduation)</h4>
                         </div>
                     </div>
                     <p>

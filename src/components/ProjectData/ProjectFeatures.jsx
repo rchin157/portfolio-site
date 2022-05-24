@@ -53,7 +53,8 @@ export default function Project() {
                     functionality.
                 </p>
                 <p>
-                    The project, including it's implementation, can be found <a>here</a>.
+                    This project, including it's implementation, can be found
+                    <a href="https://github.com/rchin157/pointcloud-feature-processor" target="_blank" rel="noopener noreferrer"> here</a>.
                 </p>
             </div>
         </div>

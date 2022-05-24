@@ -30,6 +30,7 @@ export default function Projects() {
                                 <Link to={`/Projects/${proj.id}`}>
                                     <h1 className='font-weight-light stealthlink'>{proj.name}</h1>
                                 </Link>
+                                <h3 className="text-muted font-weight-light">{proj.lang}</h3>
                                 <p>
                                     {proj.desc}
                                 </p>
