@@ -19,6 +19,7 @@ export default function Project() {
                     <span><em>Colour scan data vs. Computed z-gradient values</em></span>
                 </div>
                 <h1 className="mt-3">Pointcloud Feature Processor</h1>
+                <h3 className="text-muted">Python</h3>
                 <p>
                     This project was created to calculate per point features over pointclouds.
                     Such functionality is offered by opensource pointcloud tools such as CloudCompare, but a cutdown standalone program just
