@@ -30,6 +30,7 @@ let projs = [
     },
 ];
 
+//this function is unused
 export function getProject(id) {
     return projs.find(
         (proj) => proj.id === id
