@@ -1,10 +1,19 @@
 import Project1 from "./ProjectFeatures";
 import Project2 from "./ProjectClearance";
+import ProjectMechs from "./ProjectMechsGame"
 
 import clearanceImg from "../../data/ProjectMedia/Clearance/rightview_at_285_units_short_thumbnail.png";
 import featureImg from "../../data/ProjectMedia/FeatureProcessor/clearanceThumbnail.png";
 
 let projs = [
+    {
+        name: "Javascript Game",
+        desc: <span>A javascript game created for this website.</span>,
+        id: "mechsGame",
+        lang: "Javascript",
+        image: featureImg,
+        rcomp: <ProjectMechs />
+    },
     {
         name: "Python Pointcloud Feature Processor",
         desc: <span>A small python project for calculating features such as gradient and curvature for each point in a given cloud.

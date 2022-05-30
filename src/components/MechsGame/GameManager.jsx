@@ -1,15 +1,22 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useMemo } from "react";
 import Mechs from "./Mechs";
 import './mechs.css';
 
 export default function Manager() {
     const canvasRef = useRef(null);
 
+    let mechsGame = useMemo(() => {return new Mechs()}, []);
+
+    const handleClick = useCallback((e) => {
+        const { left, top } = e.target.getBoundingClientRect();
+        mechsGame.handleClick(e.clientX - left, e.clientY - top);
+    }, [mechsGame]);
+
     useEffect(() => {
         let canvas = canvasRef.current;
         let context = canvas.getContext('2d');
 
-        let requestId, mechsGame = new Mechs();
+        let requestId;
 
         let isMobile = false;
         if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
@@ -17,7 +24,7 @@ export default function Manager() {
             isMobile = true;
         }
 
-        function resize() {
+        const resize = () => {
             canvas = canvasRef.current;
             context = canvas.getContext('2d');
 
@@ -32,34 +39,36 @@ export default function Manager() {
             canvas.width = width * ratio;
             canvas.height = height * ratio;
             mechsGame.handleResize(context, canvas);
-        }
+        };
 
-        function setup() {
+        const setup = () => {
             mechsGame.setup(context, canvas);
-        }
+        };
 
-        function draw(timeStamp) {
+        const draw = (timeStamp) => {
             context.clearRect(0, 0, canvas.width, canvas.height);
             mechsGame.draw(context, canvas, timeStamp);
             requestId = requestAnimationFrame(draw);
-        }
+        };
 
         if (!isMobile) {
             window.addEventListener("resize", resize);
         }
         setup();
+        resize();
         draw();
         return () => {
             cancelAnimationFrame(requestId);
             if(!isMobile) {
-                window.removeEventListener("resize", reset);
+                window.removeEventListener("resize", resize);
             }
         };
-    }, [])
+    });
 
     return (
         <div style={{position: "relative"}}>
-            <canvas id="game-manager" ref={canvasRef} style={{position: "absolute", zIndex: "-1", top: "0px", left: "0px", width: "100vw", height: "45vh", maxWidth: "100%"}} />
+            <canvas id="game-manager" ref={canvasRef} style={{position: "relative"}}
+            onClick={handleClick} />
         </div>
     );
 }

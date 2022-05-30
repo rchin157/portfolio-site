@@ -1,5 +1,16 @@
-#game-manager {
-    width: 100%;
-    padding-top: 100%;
-    display: block;
+@media all and (orientation:portrait) {
+    #game-manager {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        display: block;
+        margin: auto;
+    }
+}
+@media all and (orientation:landscape) {
+    #game-manager {
+        height: 90vh;
+        aspect-ratio: 1 / 1;
+        display: block;
+        margin: auto;
+    }
 }
