@@ -55,7 +55,7 @@ export default function Project() {
                     Performance is most closely tied to the desired resolution of the output.
                 </p>
                 <p>
-                    This project, including it's implementation and thorough documentation, can be found
+                    This project, including its implementation and thorough documentation, can be found
                     <a href="https://github.com/rchin157/Road-Clearance-Tool" target="_blank" rel="noopener noreferrer"> here</a>.
                 </p>
             </div>

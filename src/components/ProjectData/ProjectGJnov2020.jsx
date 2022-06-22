@@ -21,7 +21,7 @@ export default function Project() {
                     maintaining state across clients
                 </p>
                 <p>
-                    This project, including it's implementation, can be found
+                    This project, including its implementation, can be found
                     <a href="https://github.com/rchin157/gamejam-Nov-2021" target="_blank" rel="noopener noreferrer"> here</a>.
                 </p>
             </div>
