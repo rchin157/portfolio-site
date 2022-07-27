@@ -8,7 +8,7 @@
 }
 @media all and (orientation:landscape) {
     #game-manager {
-        height: 90vh;
+        height: 80vh;
         aspect-ratio: 1 / 1;
         display: block;
         margin: auto;

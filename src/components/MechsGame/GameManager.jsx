@@ -66,9 +66,19 @@ export default function Manager() {
     });
 
     return (
-        <div style={{position: "relative"}}>
-            <canvas id="game-manager" ref={canvasRef} style={{position: "relative"}}
-            onClick={handleClick} />
+        <div>
+            <div style={{position: "relative"}}>
+                <canvas id="game-manager" ref={canvasRef} style={{position: "relative"}}
+                onClick={handleClick} />
+            </div>
+            <div className="row my-2 justify-content-center">
+                <div className="col-4 d-grid">
+                    <button onClick={mechsGame.fillerRequested} type="button" className="btn btn-dark btn-lg btn-block">Cast</button>
+                </div>
+                <div className="col-4 d-grid">
+                    <button onClick={mechsGame.shieldRequested} type="button" className="btn btn-dark btn-lg btn-block">Shield</button>
+                </div>
+            </div>
         </div>
     );
 }

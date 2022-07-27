@@ -40,6 +40,18 @@ export default class Mechs {
     }
 
     draw(ctx, canvas, ts) {
+        //draw border and quadrants
+        ctx.strokeStyle = 'lightgray';
+        ctx.beginPath();
+        ctx.moveTo(0, this.size/2);
+        ctx.lineTo(this.size, this.size/2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(this.size/2, 0);
+        ctx.lineTo(this.size/2, this.size);
+        ctx.stroke();
+        ctx.strokeStyle = 'black';
+        ctx.strokeRect(0, 0, this.size, this.size);
         if (!this.started) {
             return;
         }
@@ -85,7 +97,19 @@ export default class Mechs {
     }
 
     handleClick(x, y) {
-        console.log("mg click handled", x, y);
+        //console.log("mg click handled", x, y);
         this.started = true;
+    }
+
+    fillerRequested() {
+        if (!this.started) {
+            this.started = true;
+        }
+    }
+
+    shieldRequested() {
+        if (!this.started) {
+            this.started = true;
+        }
     }
 }
