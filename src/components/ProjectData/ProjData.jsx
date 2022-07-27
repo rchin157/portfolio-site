@@ -48,7 +48,7 @@ let projs = [
     },
     {
         name: "Android Book Lending App",
-        desc: <span>Software Engineering semester long 6 person term project. An app that tracks books for lending and borrowing.</span>,
+        desc: <span>Software Engineering semester long 6 person term project. An android app that tracks books in realtime for lending and borrowing.</span>,
         time: "Fall 2020",
         id: "BookApp",
         image: bookappimg,

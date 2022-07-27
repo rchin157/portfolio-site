@@ -29,13 +29,13 @@ export default function Navigation() {
                                     About
                                 </NavLink>
                             </li>
-                            <li className="nav-item px-2 pt-1">
-                                <a classname="nav-link" href="https://github.com/rchin157" target="_blank" rel="noreferrer">
+                            <li className="nav-item px-2">
+                                <a className="nav-link" href="https://github.com/rchin157" target="_blank" rel="noreferrer">
                                     <img className="" src={githubico} alt="" height="25" />
                                 </a>
                             </li>
-                            <li className="nav-item px-2 pt-1">
-                                <a classname="nav-link" href="https://www.linkedin.com/in/rylan-chin-06475b1a3/" target="_blank" rel="noreferrer">
+                            <li className="nav-item">
+                                <a className="nav-link" href="https://www.linkedin.com/in/rylan-chin-06475b1a3/" target="_blank" rel="noreferrer">
                                     <img className="" src={linkedinico} alt="" height="25" />
                                 </a>
                             </li>
