@@ -68,6 +68,7 @@ export default class Mechs {
         }
         if (this.isCasting) {
             //draw cast bar
+            this.drawCastBar(this.size/2, 10, this.size/3, this.size/20, this.castProg, this.mechCastTime, ctx, 'red');
             this.castProg += tElapsed;
             this.vbars[this.nextMech[0]].warn(ctx);
             this.hbars[this.nextMech[1]].warn(ctx);
@@ -94,6 +95,17 @@ export default class Mechs {
 
         this.timeSinceLastMech += tElapsed;
         this.lastTimeStamp = ts;
+    }
+
+    drawCastBar(x, y, w, h, current, total, ctx, colour) {
+        //draws a progress bar where x,y is the centre top of the bar
+        x = x - (w/2);
+        ctx.strokeStyle = colour;
+        ctx.fillStyle = 'white';
+        ctx.fillRect(x, y, w, h)
+        ctx.fillStyle = colour;
+        ctx.strokeRect(x, y, w, h);
+        ctx.fillRect(x, y, Math.min(current/total, 1) * w, h);
     }
 
     handleClick(x, y) {

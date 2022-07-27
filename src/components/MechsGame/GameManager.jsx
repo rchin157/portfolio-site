@@ -6,6 +6,8 @@ export default function Manager() {
     const canvasRef = useRef(null);
 
     let mechsGame = useMemo(() => {return new Mechs()}, []);
+    const fillerRequested = mechsGame.fillerRequested.bind(mechsGame);
+    const shieldRequested = mechsGame.shieldRequested.bind(mechsGame);
 
     const handleClick = useCallback((e) => {
         const { left, top } = e.target.getBoundingClientRect();
@@ -73,10 +75,10 @@ export default function Manager() {
             </div>
             <div className="row my-2 justify-content-center">
                 <div className="col-4 d-grid">
-                    <button onClick={mechsGame.fillerRequested} type="button" className="btn btn-dark btn-lg btn-block">Cast</button>
+                    <div onClick={fillerRequested} role="button" className="btn btn-danger btn-lg btn-block">Cast</div>
                 </div>
                 <div className="col-4 d-grid">
-                    <button onClick={mechsGame.shieldRequested} type="button" className="btn btn-dark btn-lg btn-block">Shield</button>
+                    <div onClick={shieldRequested} role="button" className="btn btn-info btn-lg btn-block">Shield</div>
                 </div>
             </div>
         </div>

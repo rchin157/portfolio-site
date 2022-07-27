@@ -5,7 +5,6 @@ export default class Bar {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.colour = "red";
         this.opacity = 0;
         this.duration = 0;
         this.startTime = 0;
@@ -34,14 +33,14 @@ export default class Bar {
         if (this.opacity > 0) {
             ctx.beginPath();
             ctx.rect(this.x, this.y, this.width, this.height);
-            ctx.fillStyle = `hsla(0, 100%, 50%, ${this.opacity})`;
+            ctx.fillStyle = `hsla(39, 100%, 50%, ${this.opacity})`;
             ctx.fill();
             this.opacity = 1 - (ts - this.startTime) / this.duration;
         }
     }
 
     warn(ctx) {
-        ctx.fillStyle = "yellow";
+        ctx.fillStyle = 'yellow';
         const angle1 = Math.PI / 2;
         const angle2 = 7 / 6 * Math.PI;
         const angle3 = 11 / 6 * Math.PI;
