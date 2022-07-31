@@ -1,11 +1,25 @@
 import React, { useCallback, useEffect, useRef, useMemo } from "react";
+import { initializeApp } from "firebase/app";
+
 import Mechs from "./Mechs";
 import './mechs.css';
 
 export default function Manager() {
     const canvasRef = useRef(null);
 
-    let mechsGame = useMemo(() => {return new Mechs()}, []);
+    const app = useMemo(() => {
+        return initializeApp({
+            apiKey: "AIzaSyCW6OsrnGr_ZOJIEMC3CxWFv895fChqcL0",
+            authDomain: "portfolio-web-mechs-game.firebaseapp.com",
+            projectId: "portfolio-web-mechs-game",
+            storageBucket: "portfolio-web-mechs-game.appspot.com",
+            messagingSenderId: "204533584499",
+            appId: "1:204533584499:web:b5c227e8c0fb9fa9589006",
+            measurementId: "G-2205CQFVRN",
+          });
+    }, []);
+
+    let mechsGame = useMemo(() => {return new Mechs(app)}, [app]);
     const fillerRequested = mechsGame.fillerRequested.bind(mechsGame);
     const shieldRequested = mechsGame.shieldRequested.bind(mechsGame);
 
@@ -44,7 +58,7 @@ export default function Manager() {
         };
 
         const setup = () => {
-            mechsGame.setup(context, canvas);
+            mechsGame.setup(canvas);
         };
 
         const draw = (timeStamp) => {
@@ -68,17 +82,31 @@ export default function Manager() {
     });
 
     return (
-        <div>
-            <div style={{position: "relative"}}>
-                <canvas id="game-manager" ref={canvasRef} style={{position: "relative"}}
-                onClick={handleClick} />
-            </div>
-            <div className="row my-2 justify-content-center">
-                <div className="col-4 d-grid">
-                    <div onClick={fillerRequested} role="button" className="btn btn-danger btn-lg btn-block">Cast</div>
+        <div className="row">
+            <div className="col col-lg-9 me-lg-2">
+                <div style={{position: "relative"}}>
+                    <canvas id="game-manager" ref={canvasRef} style={{position: "relative"}}
+                    onClick={handleClick} />
                 </div>
-                <div className="col-4 d-grid">
-                    <div onClick={shieldRequested} role="button" className="btn btn-info btn-lg btn-block">Shield</div>
+                <div className="row my-2 justify-content-center">
+                    <div className="col-5 d-grid">
+                        <div onClick={fillerRequested} role="button" className="btn btn-danger btn-lg btn-block">Cast</div>
+                    </div>
+                    <div className="col-5 d-grid">
+                        <div onClick={shieldRequested} role="button" className="btn btn-info btn-lg btn-block">Shield</div>
+                    </div>
+                </div>
+            </div>
+            <div className="col col-lg-2">
+                <h3 className="text-center">Scores</h3>
+                <div>
+                    {mechsGame.getScores().map((score) => {
+                        return (
+                            <div className="rounded shadow-sm">
+                                <h4 className="text-center">{score}</h4>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>

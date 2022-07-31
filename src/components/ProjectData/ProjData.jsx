@@ -10,6 +10,7 @@ import featureImg from "../../data/ProjectMedia/FeatureProcessor/clearanceThumbn
 import gjn2020 from "../../data/ProjectMedia/Gamejam-nov-2020/gamejam-nov-2020.png";
 import bookappimg from "../../data/ProjectMedia/BookApp/BookApp.png";
 import reschedulerTimes from "../../data/ProjectMedia/rescheduling/nsercjobscheduler.png";
+import gameImg from "../../data/ProjectMedia/MechGame/mechgame.png";
 
 let projs = [
     {
@@ -18,7 +19,7 @@ let projs = [
         time: "Q2 2022",
         id: "mechsGame",
         lang: "Javascript",
-        image: featureImg,
+        image: gameImg,
         rcomp: <ProjectMechs />
     },
     {

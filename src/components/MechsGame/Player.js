@@ -8,7 +8,7 @@ export default class Player {
         this.moveStartTime = -1;
         this.previousHalf = [xHalf, yHalf];
         this.destinationHalf = [xHalf, yHalf];
-        this.colour = "lime"
+        this.colour = "lime";
 
         this.health = 1;
         this.castTime = 800;
@@ -43,6 +43,12 @@ export default class Player {
         }
         
         if (this.isCasting) {
+            //draw cast bar
+            if (this.castType === 0) {
+                this.drawCastBar(size/4, 14*size/15, 2*size/5, size/20, this.castProg, this.castTime, ctx, 'red');
+            } else if (this.castType === 1) {
+                this.drawCastBar(3*size/4, 14*size/15, 2*size/5, size/20, this.castProg, this.castTime, ctx, 'aqua');
+            }
             this.castProg += timeElapsed;
             if (this.castProg >= this.castTime) {
                 this.isCasting = false;
@@ -77,7 +83,7 @@ export default class Player {
     }
 
     castFiller() {
-        if (this.isMoving) {
+        if (this.isMoving || (this.isCasting && this.castType === 0)) {
             return;
         }
         this.isCasting = true;
@@ -86,7 +92,7 @@ export default class Player {
     }
 
     castShield() {
-        if (this.isMoving) {
+        if (this.isMoving || (this.isCasting && this.castType === 1)) {
             return;
         }
         this.isCasting = true;
@@ -104,10 +110,23 @@ export default class Player {
 
     damage(hit) {
         this.health -= hit;
+        //console.log(`new hp: ${this.health}`);
         if (this.health <= 0) {
-            //gameover
+            return true;
         } else if (this.health === 1) {
             this.colour = "lime";
         }
+        return false;
+    }
+
+    drawCastBar(x, y, w, h, current, total, ctx, colour) {
+        //draws a progress bar where x,y is the centre top of the bar
+        x = x - (w/2);
+        ctx.strokeStyle = colour;
+        ctx.fillStyle = 'white';
+        ctx.fillRect(x, y, w, h)
+        ctx.fillStyle = colour;
+        ctx.strokeRect(x, y, w, h);
+        ctx.fillRect(x, y, Math.min(current/total, 1) * w, h);
     }
 }
