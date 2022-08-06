@@ -1,10 +1,11 @@
 import { getFirestore, addDoc, collection, Timestamp } from "firebase/firestore/lite";
+import { v4 as uuidv4 } from "uuid";
 
 import Bar from "./Bar";
 import Player from "./Player";
 
 export default class Mechs {
-    constructor(app) {
+    constructor(app, setScores) {
         this.vbars = null;
         this.hbars = null;
         this.timeSinceLastMech = 0;
@@ -25,9 +26,14 @@ export default class Mechs {
 
         this.scoredb = getFirestore(app);
         this.scores = [];
+        this.setScores = setScores;
     }
 
     setup(canvas) {
+        if (this.gameOver) {
+            return;
+        }
+        console.log("mechs setup called");
         if (canvas.width > canvas.height) {
             this.size = canvas.height;
         } else {
@@ -63,8 +69,9 @@ export default class Mechs {
         ctx.strokeRect(0, 0, this.size, this.size);
         if (this.gameOver) {
             if (!this.scoreSubmitted) {
-                this.reportScore();
-                this.scores.push(this.player.score);
+                //this.reportScore();
+                this.scores.unshift({key: uuidv4(), score: this.player.score});
+                this.setScores(this.scores);
                 this.scoreSubmitted = true;
             }
             this.cleanup(ctx);
@@ -138,8 +145,9 @@ export default class Mechs {
             let h1 = x < this.size/2 ? 0 : 1;
             let h2 = y < this.size/2 ? 0 : 1;
             this.player.move(h1, h2, 800, this.lastTimeStamp);
-        } else {
+        } else if (this.gameOver) {
             //end screen/score submission
+            this.reset();
         }
     }
 
@@ -147,12 +155,18 @@ export default class Mechs {
         if (!this.started) {
             this.started = true;
         }
+        if (this.gameOver) {
+            this.reset();
+        }
         this.player.castFiller();
     }
 
     shieldRequested() {
         if (!this.started) {
             this.started = true;
+        }
+        if (this.gameOver) {
+            this.reset();
         }
         this.player.castShield();
     }

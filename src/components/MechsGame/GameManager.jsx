@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useMemo } from "react";
+import React, { useCallback, useEffect, useRef, useMemo, useState } from "react";
 import { initializeApp } from "firebase/app";
 
 import Mechs from "./Mechs";
@@ -19,7 +19,8 @@ export default function Manager() {
           });
     }, []);
 
-    let mechsGame = useMemo(() => {return new Mechs(app)}, [app]);
+    let [sessionScores, setScores] = useState([]);
+    let mechsGame = useMemo(() => {return new Mechs(app, setScores)}, [app]);
     const fillerRequested = mechsGame.fillerRequested.bind(mechsGame);
     const shieldRequested = mechsGame.shieldRequested.bind(mechsGame);
 
@@ -97,16 +98,19 @@ export default function Manager() {
                     </div>
                 </div>
             </div>
-            <div className="col col-lg-2">
+            <div className="col d-flex flex-column">
                 <h3 className="text-center">Scores</h3>
-                <div>
-                    {mechsGame.getScores().map((score) => {
+                <div className="flex-fill">
+                    {sessionScores.map((score) => {
                         return (
-                            <div className="rounded shadow-sm">
-                                <h4 className="text-center">{score}</h4>
+                            <div key={score.key} className="rounded shadow py-2 my-1 bg-info">
+                                <h3 className="text-center">{score.score}</h3>
                             </div>
                         );
                     })}
+                </div>
+                <div className="position-relative my-1">
+                    <div onClick={() => {}} role="button" className="btn btn-primary btn-lg btn-block position-relative bottom-0 start-50 translate-middle-x">Submit Scores</div>
                 </div>
             </div>
         </div>
