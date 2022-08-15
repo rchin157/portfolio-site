@@ -20,9 +20,11 @@ export default function Manager() {
     }, []);
 
     let [sessionScores, setScores] = useState([]);
+    let [nick, setNick] = useState("DFLT");
     let mechsGame = useMemo(() => {return new Mechs(app, setScores)}, [app]);
     const fillerRequested = mechsGame.fillerRequested.bind(mechsGame);
     const shieldRequested = mechsGame.shieldRequested.bind(mechsGame);
+    const reportScores = mechsGame.reportScores.bind(mechsGame);
 
     const handleClick = useCallback((e) => {
         const { left, top } = e.target.getBoundingClientRect();
@@ -84,7 +86,7 @@ export default function Manager() {
 
     return (
         <div className="row">
-            <div className="col col-lg-9 me-lg-2">
+            <div className="col col-xl-9 me-xl-2">
                 <div style={{position: "relative"}}>
                     <canvas id="game-manager" ref={canvasRef} style={{position: "relative"}}
                     onClick={handleClick} />
@@ -98,7 +100,7 @@ export default function Manager() {
                     </div>
                 </div>
             </div>
-            <div className="col d-flex flex-column">
+            <div className="col-xl d-flex flex-column">
                 <h3 className="text-center">Scores</h3>
                 <div className="flex-fill">
                     {sessionScores.map((score) => {
@@ -109,8 +111,9 @@ export default function Manager() {
                         );
                     })}
                 </div>
-                <div className="position-relative my-1">
-                    <div onClick={() => {}} role="button" className="btn btn-primary btn-lg btn-block position-relative bottom-0 start-50 translate-middle-x">Submit Scores</div>
+                <div className="position-relative my-2 input-group">
+                    <input type="text" className="form-control" placeholder="Nickname" aria-label="Nickname" aria-describedby="basic-addon2" />
+                    <div onClick={() => {}} role="button" className="btn btn-outline-primary" id="basic-addon2">Submit Scores</div>
                 </div>
             </div>
         </div>

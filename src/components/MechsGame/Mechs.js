@@ -178,17 +178,23 @@ export default class Mechs {
         ctx.fillText(`Final Score: ${this.player.score}`, this.size/2, this.size/2);
     }
 
-    async reportScore() {
-        const scoreCollection = collection(this.scoredb, 'scores');
-        try {
-            await addDoc(scoreCollection, {
-                'nick': '',
-                'score': this.player.score,
-                'time': Timestamp.fromDate(new Date()),
-            });
-        } catch (err) {
-            console.log('failed to submit score');
+    async reportScores() {
+        if (this.scores.length === 0) {
+            return;
         }
+        const scoreCollection = collection(this.scoredb, 'scores');
+        for (let i=0; i<=this.scores.length; i++) {
+            try {
+                await addDoc(scoreCollection, {
+                    'nick': '',
+                    'score': this.player.scores[i].score,
+                    'time': Timestamp.fromDate(new Date()),
+                });
+            } catch (err) {
+                console.log('failed to submit score');
+            }
+        }
+        this.setScores([]);
     }
 
     setdb(db) {
