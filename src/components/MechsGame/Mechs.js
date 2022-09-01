@@ -34,10 +34,12 @@ export default class Mechs {
             return;
         }
         console.log("mechs setup called");
-        if (canvas.width > canvas.height) {
-            this.size = canvas.height;
-        } else {
-            this.size = canvas.width;
+        if (canvas !== null) {
+            if (canvas.width > canvas.height) {
+                this.size = canvas.height;
+            } else {
+                this.size = canvas.width;
+            }
         }
         this.vbars = [new Bar(0, 0, this.size / 2, this.size), new Bar(this.size / 2, 0, this.size / 2, this.size)];
         this.hbars = [new Bar(0, 0, this.size, this.size / 2), new Bar(0, this.size / 2, this.size, this.size / 2)];
@@ -142,8 +144,11 @@ export default class Mechs {
         if (!this.gameOver && this.started) {
             //gameplay
             this.started = true;
+            console.log(x,y);
             let h1 = x < this.size/2 ? 0 : 1;
             let h2 = y < this.size/2 ? 0 : 1;
+            console.log(h1,h2);
+            console.log(this.size);
             this.player.move(h1, h2, 800, this.lastTimeStamp);
         } else if (this.gameOver) {
             //end screen/score submission
@@ -201,7 +206,7 @@ export default class Mechs {
         this.scoredb = db;
     }
 
-    reset(canvas) {
+    reset() {
         this.timeSinceLastMech = 0;
         this.timeBetweenMechs = 10000; //milliseconds
         this.isCasting = false;
@@ -213,7 +218,7 @@ export default class Mechs {
         this.nickRecorded = false;
         this.scoreSubmitted = false;
 
-        this.setup(canvas);
+        this.setup(null);
     }
 
     getScores() {

@@ -8,6 +8,7 @@ export default function Manager() {
     const canvasRef = useRef(null);
 
     const app = useMemo(() => {
+        //TODO: move this auth info to a separate file and remove from git tracking
         return initializeApp({
             apiKey: "AIzaSyCW6OsrnGr_ZOJIEMC3CxWFv895fChqcL0",
             authDomain: "portfolio-web-mechs-game.firebaseapp.com",
@@ -28,7 +29,7 @@ export default function Manager() {
 
     const handleClick = useCallback((e) => {
         const { left, top } = e.target.getBoundingClientRect();
-        mechsGame.handleClick(e.clientX - left, e.clientY - top);
+        mechsGame.handleClick((e.clientX - left) * 2, (e.clientY - top) * 2);
     }, [mechsGame]);
 
     useEffect(() => {
@@ -103,13 +104,11 @@ export default function Manager() {
             <div className="col-xl d-flex flex-column">
                 <h3 className="text-center">Scores</h3>
                 <div className="flex-fill">
-                    {sessionScores.map((score) => {
-                        return (
+                    {sessionScores.map((score) => (
                             <div key={score.key} className="rounded shadow py-2 my-1 bg-info">
                                 <h3 className="text-center">{score.score}</h3>
                             </div>
-                        );
-                    })}
+                    ))}
                 </div>
                 <div className="position-relative my-2 input-group">
                     <input type="text" className="form-control" placeholder="Nickname" aria-label="Nickname" aria-describedby="basic-addon2" />
