@@ -75,11 +75,13 @@ export default class Player {
             this.isCasting = false;
             this.castProg = 0;
         }
-        this.destinationHalf = [xHalf, yHalf];
-        this.moveTime = time;
-        this.moveProgTime = 0;
-        this.moveStartTime = ts;
-        this.isMoving = true;
+        if (!this.isMoving) {
+            this.destinationHalf = [xHalf, yHalf];
+            this.moveTime = time;
+            this.moveProgTime = 0;
+            this.moveStartTime = ts;
+            this.isMoving = true;
+        }
     }
 
     castFiller() {
