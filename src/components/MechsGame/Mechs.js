@@ -72,8 +72,9 @@ export default class Mechs {
         if (this.gameOver) {
             if (!this.scoreSubmitted) {
                 //this.reportScore();
+                console.log("scores updated", this.scores)
                 this.scores.unshift({key: uuidv4(), score: this.player.score});
-                this.setScores(this.scores);
+                this.setScores([...this.scores]);
                 this.scoreSubmitted = true;
             }
             this.cleanup(ctx);
@@ -147,7 +148,6 @@ export default class Mechs {
             console.log(x,y);
             let h1 = x < this.size/2 ? 0 : 1;
             let h2 = y < this.size/2 ? 0 : 1;
-            console.log(h1,h2);
             console.log(this.size);
             this.player.move(h1, h2, 800, this.lastTimeStamp);
         } else if (this.gameOver) {

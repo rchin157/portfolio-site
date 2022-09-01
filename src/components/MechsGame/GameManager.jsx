@@ -20,7 +20,7 @@ export default function Manager() {
           });
     }, []);
 
-    let [sessionScores, setScores] = useState([]);
+    const [sessionScores, setScores] = useState([]);
     let [nick, setNick] = useState("DFLT");
     let mechsGame = useMemo(() => {return new Mechs(app, setScores)}, [app]);
     const fillerRequested = mechsGame.fillerRequested.bind(mechsGame);
@@ -29,7 +29,7 @@ export default function Manager() {
 
     const handleClick = useCallback((e) => {
         const { left, top } = e.target.getBoundingClientRect();
-        mechsGame.handleClick((e.clientX - left) * 2, (e.clientY - top) * 2);
+        mechsGame.handleClick((e.clientX - left), (e.clientY - top));
     }, [mechsGame]);
 
     useEffect(() => {
