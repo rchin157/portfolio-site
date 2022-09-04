@@ -3,25 +3,18 @@ import { initializeApp } from "firebase/app";
 
 import Mechs from "./Mechs";
 import './mechs.css';
+import { fbauth } from "../../data/secrets"
 
 export default function Manager() {
     const canvasRef = useRef(null);
 
     const app = useMemo(() => {
-        //TODO: move this auth info to a separate file and remove from git tracking
-        return initializeApp({
-            apiKey: "AIzaSyCW6OsrnGr_ZOJIEMC3CxWFv895fChqcL0",
-            authDomain: "portfolio-web-mechs-game.firebaseapp.com",
-            projectId: "portfolio-web-mechs-game",
-            storageBucket: "portfolio-web-mechs-game.appspot.com",
-            messagingSenderId: "204533584499",
-            appId: "1:204533584499:web:b5c227e8c0fb9fa9589006",
-            measurementId: "G-2205CQFVRN",
-          });
+        return initializeApp(fbauth);
     }, []);
 
     const [sessionScores, setScores] = useState([]);
     let [nick, setNick] = useState("DFLT");
+    let [firstTimeSetup, setFirstTimeSetup] = useState(true);
     let mechsGame = useMemo(() => {return new Mechs(app, setScores)}, [app]);
     const fillerRequested = mechsGame.fillerRequested.bind(mechsGame);
     const shieldRequested = mechsGame.shieldRequested.bind(mechsGame);
@@ -74,8 +67,11 @@ export default function Manager() {
         if (!isMobile) {
             window.addEventListener("resize", resize);
         }
-        setup();
-        resize();
+        if (firstTimeSetup) {
+            setup();
+            resize();
+            setFirstTimeSetup(false);
+        }
         draw();
         return () => {
             cancelAnimationFrame(requestId);
@@ -83,7 +79,7 @@ export default function Manager() {
                 window.removeEventListener("resize", resize);
             }
         };
-    });
+    }, [firstTimeSetup, mechsGame]);
 
     return (
         <div className="row">
@@ -111,8 +107,8 @@ export default function Manager() {
                     ))}
                 </div>
                 <div className="position-relative my-2 input-group">
-                    <input type="text" className="form-control" placeholder="Nickname" aria-label="Nickname" aria-describedby="basic-addon2" />
-                    <div onClick={() => {}} role="button" className="btn btn-outline-primary" id="basic-addon2">Submit Scores</div>
+                    <input type="text" className="form-control" placeholder="Nickname" aria-label="Nickname" aria-describedby="basic-addon2" onChange={(event) => {setNick(event.target.value); console.log(event.target.value)}} />
+                    <div onClick={() => reportScores(nick)} role="button" className="btn btn-outline-primary" id="basic-addon2">Submit Scores</div>
                 </div>
             </div>
         </div>

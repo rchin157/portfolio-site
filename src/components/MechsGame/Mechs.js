@@ -33,7 +33,7 @@ export default class Mechs {
         if (this.gameOver) {
             return;
         }
-        console.log("mechs setup called");
+        //console.log("mechs setup called");
         if (canvas !== null) {
             if (canvas.width > canvas.height) {
                 this.size = canvas.height;
@@ -72,7 +72,7 @@ export default class Mechs {
         if (this.gameOver) {
             if (!this.scoreSubmitted) {
                 //this.reportScore();
-                console.log("scores updated", this.scores)
+                //console.log("scores updated", this.scores)
                 this.scores.unshift({key: uuidv4(), score: this.player.score});
                 this.setScores([...this.scores]);
                 this.scoreSubmitted = true;
@@ -145,10 +145,10 @@ export default class Mechs {
         if (!this.gameOver && this.started) {
             //gameplay
             this.started = true;
-            console.log(x,y);
+            //console.log(x,y);
             let h1 = x < this.size/2 ? 0 : 1;
             let h2 = y < this.size/2 ? 0 : 1;
-            console.log(this.size);
+            //console.log(this.size);
             this.player.move(h1, h2, 800, this.lastTimeStamp);
         } else if (this.gameOver) {
             //end screen/score submission
@@ -180,26 +180,29 @@ export default class Mechs {
         ctx.textAlign = 'center';
         ctx.fillStyle = 'black'
         ctx.font = '48px sans';
-        ctx.fillText(`Final Score: ${this.player.score}`, this.size/2, this.size/2);
+        ctx.fillText(`Final Score: ${this.player.score}`, this.size/2, this.size/2 - 12);
+        ctx.fillText('Press cast to play again.', this.size/2, this.size/2 + 50);
     }
 
-    async reportScores() {
-        if (this.scores.length === 0) {
+    async reportScores(nick) {
+        if (this.scores.length === 0 || nick.length === 0) {
             return;
         }
         const scoreCollection = collection(this.scoredb, 'scores');
         for (let i=0; i<=this.scores.length; i++) {
             try {
                 await addDoc(scoreCollection, {
-                    'nick': '',
-                    'score': this.player.scores[i].score,
+                    'nick': nick,
+                    'score': this.scores[i].score,
                     'time': Timestamp.fromDate(new Date()),
+                    'key': this.scores[i].key,
                 });
             } catch (err) {
                 console.log('failed to submit score');
             }
         }
         this.setScores([]);
+        this.scores = [];
     }
 
     setdb(db) {
