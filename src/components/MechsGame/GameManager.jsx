@@ -85,7 +85,7 @@ export default function Manager() {
         <div className="row">
             <div className="col col-xl-9 me-xl-2">
                 <div style={{position: "relative"}}>
-                    <canvas id="game-manager" ref={canvasRef} style={{position: "relative"}}
+                    <canvas id="game-manager" ref={canvasRef} style={{position: "relative", maxWidth: '100%'}}
                     onClick={handleClick} />
                 </div>
                 <div className="row my-2 justify-content-center">
