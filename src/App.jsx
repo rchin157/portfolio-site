@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import {
     Navigation,
     Footer,
@@ -14,7 +14,7 @@ import ScrollToTop from "./components/utils/ScrollToTop";
 
 export default function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Navigation />
             <ScrollToTop>
                 <Routes>
@@ -29,6 +29,6 @@ export default function App() {
                 </Routes>
                 <Footer />
             </ScrollToTop>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
