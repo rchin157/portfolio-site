@@ -39,10 +39,10 @@ export default function Footer() {
                             <h5>My Links</h5>
                             <ul className="list-unstyled">
                                 <li className="nav-item mb-2">
-                                    <a className="stealthlink" href="https://github.com/rchin157">GitHub</a>
+                                    <a className="stealthlink" href="https://github.com/rchin157" target="_blank" rel="noreferrer">GitHub</a>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <a className="stealthlink" href="https://www.linkedin.com/in/rylan-chin-06475b1a3/">LinkedIn</a>
+                                    <a className="stealthlink" href="https://www.linkedin.com/in/rylan-chin-06475b1a3/" target="_blank" rel="noreferrer">LinkedIn</a>
                                 </li>
                             </ul>
                         </div>

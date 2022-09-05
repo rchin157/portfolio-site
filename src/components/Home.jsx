@@ -21,7 +21,7 @@ export default function Home() {
                             <h4>University of Alberta</h4>
                         </div>
                         <div className="col-12 col-lg-6">
-                            <h4 className="text-lg-end">Fall 2018-Present</h4>
+                            <h4 className="text-lg-end">Fall 2018-Present(Spring 2023 Graduation)</h4>
                         </div>
                     </div>
                     <p>
@@ -86,44 +86,85 @@ export default function Home() {
                         </li>
                         <li>Optimized for different aspects such as memory and runtime.</li>
                         <li>Supervised junior team member who particpated as part of the Highschool Internship Program.</li>
-                        <li>The paper went on to be published and can be viewed by clicking 
+                        <li>The paper went on to be published and can be viewed 
                             <a href={nsercrapaper} target="_blank" rel="noopener noreferrer"> here</a>.
                         </li>
                     </ul>
                 </div>
                 <div className="p-3">
                     <h1>Languages and Technologies</h1>
-                    <h4>Languages</h4>
-                    <ul className="list-unstyled">
-                        <li className="list-item">
-                            Python<br />
-                        </li>
-                        <li className="list-item">
-                            Javascript
-                        </li>
-                        <li className="list-item">
-                            Java
-                        </li>
-                        <li className="list-item">
-                            Matlab
-                        </li>
-                        <li className="list-item">
-                            C
-                        </li>
-                        <li className="list-item">
-                            SQL
-                        </li>
-                        <li className="list-item">
-                            HTML/CSS
-                        </li>
-                        <li className="list-item">
-                            VBA
-                        </li>
-                        <li className="list-item">
-                            Assembly
-                        </li>
-                    </ul>
-                    <h4>Technologies</h4>
+                    <div className="row">
+                        <div className="col-12 col-md-6">
+                            <h4>Languages</h4>
+                            <ul className="list-unstyled">
+                                <li className="list-item">
+                                    Python<br />
+                                </li>
+                                <li className="list-item">
+                                    Javascript
+                                </li>
+                                <li className="list-item">
+                                    Java
+                                </li>
+                                <li className="list-item">
+                                    Matlab
+                                </li>
+                                <li className="list-item">
+                                    C
+                                </li>
+                                <li className="list-item">
+                                    SQL
+                                </li>
+                                <li className="list-item">
+                                    HTML/CSS
+                                </li>
+                                <li className="list-item">
+                                    VBA
+                                </li>
+                                <li className="list-item">
+                                    Assembly
+                                </li>
+                                <li className="list-item">
+                                    Lisp
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="col-12 col-md-6">
+                            <h4>Technologies</h4>
+                            <ul className="list-unstyled">
+                                <li className="list-item">
+                                    React
+                                </li>
+                                <li className="list-item">
+                                    Git
+                                </li>
+                                <li className="list-item">
+                                    Continuous Integration
+                                </li>
+                                <li className="list-item">
+                                    OOP
+                                </li>
+                                <li className="list-item">
+                                    Visual Studio
+                                </li>
+                                <li className="list-item">
+                                    MS Office
+                                </li>
+                                <li className="list-item">
+                                    Android Studio
+                                </li>
+                                <li className="list-item">
+                                    UML
+                                </li>
+                                <li className="list-item">
+                                    General Linux
+                                </li>
+                                <li className="list-item">
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

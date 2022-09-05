@@ -1,6 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import githubico from "../data/Icons/GitHub-Mark-120px-plus.png";
+import linkedinico from "../data/Icons/LI-In-Bug.png";
+
 export default function Navigation() {
     return (
         <div className="navigation shadow">
@@ -25,6 +28,16 @@ export default function Navigation() {
                                 <NavLink className="nav-link" to="/About">
                                     About
                                 </NavLink>
+                            </li>
+                            <li className="nav-item px-2">
+                                <a className="nav-link" href="https://github.com/rchin157" target="_blank" rel="noreferrer">
+                                    <img className="" src={githubico} alt="" height="25" />
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="https://www.linkedin.com/in/rylan-chin-06475b1a3/" target="_blank" rel="noreferrer">
+                                    <img className="" src={linkedinico} alt="" height="25" />
+                                </a>
                             </li>
                         </ul>
                     </div>

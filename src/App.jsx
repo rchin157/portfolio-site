@@ -10,22 +10,25 @@ import {
     About,
     NoMatch,
   } from './components';
+import ScrollToTop from "./components/utils/ScrollToTop";
 
 export default function App() {
     return (
         <HashRouter>
             <Navigation />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/Projects" element={<ProjectIndex />}>
-                    <Route path="" element={<Projects />} />
-                    <Route path=":projShort" element={<Project />} />
+            <ScrollToTop>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/Projects" element={<ProjectIndex />}>
+                        <Route path="" element={<Projects />} />
+                        <Route path=":projShort" element={<Project />} />
+                        <Route path="*" element={<NoMatch />} />
+                    </Route>
+                    <Route path="/About" element={<About />} />
                     <Route path="*" element={<NoMatch />} />
-                </Route>
-                <Route path="/About" element={<About />} />
-                <Route path="*" element={<NoMatch />} />
-            </Routes>
-            <Footer />
+                </Routes>
+                <Footer />
+            </ScrollToTop>
         </HashRouter>
     );
 }
