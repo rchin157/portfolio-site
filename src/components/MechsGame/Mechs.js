@@ -147,10 +147,10 @@ export default class Mechs {
             this.started = true;
             let x = x1 * window.devicePixelRatio;
             let y = y1 * window.devicePixelRatio;
-            console.log(x,y);
+            //console.log(x,y);
             let h1 = x < this.size/2 ? 0 : 1;
             let h2 = y < this.size/2 ? 0 : 1;
-            console.log(this.size);
+            //console.log(this.size);
             this.player.move(h1, h2, 800, this.lastTimeStamp);
         } else if (this.gameOver) {
             //end screen/score submission
