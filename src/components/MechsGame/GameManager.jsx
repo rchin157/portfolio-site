@@ -68,6 +68,7 @@ export default function Manager() {
             window.addEventListener("resize", resize);
         }
         if (firstTimeSetup) {
+            //console.log(window.devicePixelRatio);
             setup();
             resize();
             setFirstTimeSetup(false);

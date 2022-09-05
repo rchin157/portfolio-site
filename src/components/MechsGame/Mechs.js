@@ -140,15 +140,17 @@ export default class Mechs {
         ctx.fillRect(x, y, Math.min(current/total, 1) * w, h);
     }
 
-    handleClick(x, y) {
+    handleClick(x1, y1) {
         //console.log("mg click handled", x, y);
         if (!this.gameOver && this.started) {
             //gameplay
             this.started = true;
-            //console.log(x,y);
+            let x = x1 * window.devicePixelRatio;
+            let y = y1 * window.devicePixelRatio;
+            console.log(x,y);
             let h1 = x < this.size/2 ? 0 : 1;
             let h2 = y < this.size/2 ? 0 : 1;
-            //console.log(this.size);
+            console.log(this.size);
             this.player.move(h1, h2, 800, this.lastTimeStamp);
         } else if (this.gameOver) {
             //end screen/score submission
