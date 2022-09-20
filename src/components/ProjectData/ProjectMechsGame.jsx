@@ -5,22 +5,20 @@ import { getFirestore, query, collection, onSnapshot, orderBy, limit } from "fir
 
 import { fbauth } from "../../data/secrets";
 
+// this is the project page for the mechs game, the game is rendered on this page
 export default function Project() {
+    // setup firebase
     const app = useMemo(() => {
         return initializeApp(fbauth);
     }, []);
 
+    // setup firestore variables
     const [topten, setTopten] = useState([]);
     const db = useMemo(() => {return getFirestore(app)}, [app]);
     const col = useMemo(() => {return collection(db, "scores")}, [db]);
     const scoreQuery = useMemo(() => {return query(col, orderBy("score", "desc"), limit(10))}, [col]);
     
-    // useEffect(() => {
-    //     onSnapshot(collection(db, 'scores'), (snapshot) => {
-    //         setTopten(snapshot.docs.map((doc) => doc.data()));
-    //         console.log(topten);
-    //     });
-    // });
+    // create a listener for the firestore collection
     useMemo(() => {
         onSnapshot(scoreQuery, (snapshot) => {
             setTopten(snapshot.docs.map((doc) => doc.data()));

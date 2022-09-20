@@ -2,6 +2,7 @@ import React from "react";
 
 import headerimg from "../../data/ProjectMedia/Gamejam-nov-2020/gamejam-nov-2020.png";
 
+// this is the project page for the gamejam-nov-2020
 export default function Project() {
     return (
         <div className="home">

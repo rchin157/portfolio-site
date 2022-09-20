@@ -5,6 +5,7 @@ import Mechs from "./Mechs";
 import './mechs.css';
 import { fbauth } from "../../data/secrets"
 
+// top level functional component for rendering mech game
 export default function Manager() {
     const canvasRef = useRef(null);
 
@@ -12,6 +13,7 @@ export default function Manager() {
         return initializeApp(fbauth);
     }, []);
 
+    // initialize variables
     const [sessionScores, setScores] = useState([]);
     let [nick, setNick] = useState("DFLT");
     let [firstTimeSetup, setFirstTimeSetup] = useState(true);
@@ -20,6 +22,7 @@ export default function Manager() {
     const shieldRequested = mechsGame.shieldRequested.bind(mechsGame);
     const reportScores = mechsGame.reportScores.bind(mechsGame);
 
+    //send canvas clicks to game
     const handleClick = useCallback((e) => {
         const { left, top } = e.target.getBoundingClientRect();
         mechsGame.handleClick((e.clientX - left), (e.clientY - top));
@@ -37,6 +40,7 @@ export default function Manager() {
             isMobile = true;
         }
 
+        // handle resize events
         const resize = () => {
             canvas = canvasRef.current;
             context = canvas.getContext('2d');
@@ -54,10 +58,12 @@ export default function Manager() {
             mechsGame.handleResize(context, canvas);
         };
 
+        // call setup on mechsgame object
         const setup = () => {
             mechsGame.setup(canvas);
         };
 
+        // call draw on mechsgame object on loop
         const draw = (timeStamp) => {
             context.clearRect(0, 0, canvas.width, canvas.height);
             mechsGame.draw(context, canvas, timeStamp);
@@ -67,6 +73,7 @@ export default function Manager() {
         if (!isMobile) {
             window.addEventListener("resize", resize);
         }
+        // run setup one time to avoid issues
         if (firstTimeSetup) {
             //console.log(window.devicePixelRatio);
             setup();
@@ -74,6 +81,8 @@ export default function Manager() {
             setFirstTimeSetup(false);
         }
         draw();
+
+        // cleanup on unmount
         return () => {
             cancelAnimationFrame(requestId);
             if(!isMobile) {
@@ -82,6 +91,7 @@ export default function Manager() {
         };
     }, [firstTimeSetup, mechsGame]);
 
+    // return proper react elements
     return (
         <div className="row">
             <div className="col col-xl-9 me-xl-2">

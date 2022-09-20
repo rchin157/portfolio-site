@@ -3,6 +3,7 @@ import React from "react";
 import headerimg from "../../data/ProjectMedia/rescheduling/nsercjobscheduler.png";
 import nsercrapaper from "../../data/32dafaad-c032-4dd1-9d10-4dd607e6d179.pdf";
 
+// this is the project page for the job scheduler project
 export default function Project() {
     return (
         <div className="home">

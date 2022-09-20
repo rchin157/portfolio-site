@@ -4,7 +4,9 @@ import { v4 as uuidv4 } from "uuid";
 import Bar from "./Bar";
 import Player from "./Player";
 
+// The main class that represents a mechs game instance
 export default class Mechs {
+    // mostly handles stage and enemy mechanics
     constructor(app, setScores) {
         this.vbars = null;
         this.hbars = null;
@@ -29,6 +31,7 @@ export default class Mechs {
         this.setScores = setScores;
     }
 
+    // setup game (ie. bars, player, etc.)
     setup(canvas) {
         if (this.gameOver) {
             return;
@@ -56,6 +59,7 @@ export default class Mechs {
         this.hbars = [new Bar(0, 0, this.size, this.size / 2), new Bar(0, this.size / 2, this.size, this.size / 2)];
     }
 
+    // render to canvas, also main game loop
     draw(ctx, canvas, ts) {
         //draw border and quadrants
         ctx.strokeStyle = 'lightgray';
@@ -82,6 +86,7 @@ export default class Mechs {
         if (!this.started || this.gameOver) {
             return;
         }
+        // track time to relate game mechanics to time rather than framerate
         if (this.lastTimeStamp === null) {
             this.lastTimeStamp = ts;
         }
@@ -93,6 +98,7 @@ export default class Mechs {
             this.isCasting = true;
             this.timeSinceLastMech = 0;
         }
+        // handle mechanic windup
         if (this.isCasting) {
             //draw cast bar
             this.drawCastBar(this.size/2, 10, this.size/3, this.size/20, this.castProg, this.mechCastTime, ctx, 'red');
@@ -100,6 +106,7 @@ export default class Mechs {
             this.vbars[this.nextMech[0]].warn(ctx);
             this.hbars[this.nextMech[1]].warn(ctx);
         }
+        // handle mechanic windup finishing
         if (this.castProg >= this.mechCastTime) {
             if (this.timeBetweenMechs > this.minPeriod) {
                 this.timeBetweenMechs -= 1000;
@@ -120,6 +127,7 @@ export default class Mechs {
             this.nextMech = null;
         }
 
+        //draw game elements
         for (const bar of this.vbars.concat(this.hbars)) {
             bar.draw(ctx, ts);
         }
@@ -158,6 +166,7 @@ export default class Mechs {
         }
     }
 
+    // attempt to trigger a filler cast
     fillerRequested() {
         if (!this.started) {
             this.started = true;
@@ -168,6 +177,7 @@ export default class Mechs {
         this.player.castFiller();
     }
 
+    // attempt to trigger a shield cast
     shieldRequested() {
         if (!this.started) {
             this.started = true;
@@ -178,6 +188,7 @@ export default class Mechs {
         this.player.castShield();
     }
 
+    // display end screen
     cleanup(ctx) {
         ctx.textAlign = 'center';
         ctx.fillStyle = 'black'
@@ -186,6 +197,7 @@ export default class Mechs {
         ctx.fillText('Press cast to play again.', this.size/2, this.size/2 + 50);
     }
 
+    // send scores to firebase on request
     async reportScores(nick) {
         if (this.scores.length === 0 || nick.length === 0) {
             return;
@@ -211,6 +223,7 @@ export default class Mechs {
         this.scoredb = db;
     }
 
+    // reset game state
     reset() {
         this.timeSinceLastMech = 0;
         this.timeBetweenMechs = 10000; //milliseconds

@@ -3,6 +3,7 @@ import Boid from "./Boid";
 import './boid.css';
 import Obstacle from "./Obstacle";
 
+// this functional component handles rendering of the boids banner
 export default function Manager() {
     const canvasRef = useRef(null);
 
@@ -20,6 +21,7 @@ export default function Manager() {
             isMobile = true;
         }
 
+        // this function ensures the canvas is the correct size on load and on resize
         function reset() {
             canvas = canvasRef.current;
             context = canvas.getContext('2d');
@@ -39,6 +41,7 @@ export default function Manager() {
             setup();
         }
 
+        // this function sets up the boids and obstacles
         function setup() {
             for (let i = 0; i < numBoids; i++) {
                 let newX = Math.floor(Math.random() * canvas.width);
@@ -53,6 +56,7 @@ export default function Manager() {
             }
         }
 
+        // this function draws the boids and obstacles on loop
         function draw() {
             context.clearRect(0, 0, canvas.width, canvas.height);
             for (let i = 0; i < numObs; i++) {
@@ -70,6 +74,8 @@ export default function Manager() {
         }
         reset();
         draw();
+
+        // cleanup on unmount
         return () => {
             cancelAnimationFrame(requestId);
             if(!isMobile) {
@@ -85,6 +91,7 @@ export default function Manager() {
     );
 }
 
+// this function returns the pixel ratio for proper scaling
 function getPixelRatio(ctx) {
     var dpr = window.devicePixelRatio || 1;
     var bsr = ctx.backingStorePixelRatio ||

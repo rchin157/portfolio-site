@@ -12,6 +12,7 @@ import bookappimg from "../../data/ProjectMedia/BookApp/BookApp.png";
 import reschedulerTimes from "../../data/ProjectMedia/rescheduling/nsercjobscheduler.png";
 import gameImg from "../../data/ProjectMedia/MechGame/mechgame.png";
 
+// list of all projects, used for rendering
 let projs = [
     {
         name: "Javascript Game",

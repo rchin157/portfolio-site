@@ -7,6 +7,7 @@ import ceiling from "../../data/ProjectMedia/Clearance/ceilingview_at_285_units.
 import leftside from "../../data/ProjectMedia/Clearance/leftview_at_285_units.png"
 import rightside from "../../data/ProjectMedia/Clearance/rightview_at_285_units.png"
 
+// this is the project page for the clearance project
 export default function Project() {
     return (
         <div className="home">

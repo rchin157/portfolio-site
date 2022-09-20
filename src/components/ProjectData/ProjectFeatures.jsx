@@ -7,6 +7,7 @@ import sScanGrad from "../../data/ProjectMedia/FeatureProcessor/SgradShot.png";
 import sTrimLinearity from "../../data/ProjectMedia/FeatureProcessor/strimlinearity.png"
 import sTrimCurvature from "../../data/ProjectMedia/FeatureProcessor/strimcurvature.png"
 
+// this is the project page for the pointcloud feature processor
 export default function Project() {
     return (
         <div className="home">

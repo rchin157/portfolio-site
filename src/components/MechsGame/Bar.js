@@ -1,3 +1,4 @@
+// this class models a rectangle zone for game mechanics as well as visual rendering
 export default class Bar {
     constructor(x=0, y=0, width=0, height=0) {
         //x, y are the top left corner of the bar
@@ -12,10 +13,12 @@ export default class Bar {
         this.warnSizeDenom = 14;
     }
 
+    // checks if a point (x, y) is inside the bar
     pointContained(x, y) {
         return this.x <= x && x <= this.x + this.width && this.y <= y && y < this.y + this.height;
     }
 
+    // sets the size of the bar
     setSize(x, y, width, height) {
         this.x = x;
         this.y = y;
@@ -23,12 +26,14 @@ export default class Bar {
         this.height = height;
     }
 
+    // triggers the flash visual effect
     flash(duration, ts) {
         this.duration = duration;
         this.opacity = 1;
         this.startTime = ts;
     }
 
+    // draws the bar on the canvas
     draw(ctx, ts) {
         if (this.opacity > 0) {
             ctx.beginPath();
@@ -39,6 +44,7 @@ export default class Bar {
         }
     }
 
+    // shows warning symbols on the bar
     warn(ctx) {
         ctx.fillStyle = 'yellow';
         const angle1 = Math.PI / 2;

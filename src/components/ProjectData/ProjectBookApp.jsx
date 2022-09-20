@@ -5,6 +5,7 @@ import umlimg from "../../data/ProjectMedia/BookApp/Nov29UML.png";
 import protoimg from "../../data/ProjectMedia/BookApp/prototype.png";
 import storybimg from "../../data/ProjectMedia/BookApp/storyboard.png";
 
+// this is the project page for the book lending app
 export default function Project() {
     return (
         <div className="home">

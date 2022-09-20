@@ -1,4 +1,7 @@
+// this is a boid class, it represents a single boid in the flock and handles the associated behaviors
+
 export default class Boid {
+    // boids can come in 4 colours
     static colors = {
         0: 'aqua',
         1: 'fuchsia',
@@ -41,6 +44,7 @@ export default class Boid {
         return [this.dx, this.dy];
     }
 
+    // draw an individual boid using html context methods
     draw(ctx) {
         ctx.beginPath();
         ctx.moveTo((this.x - this.ndx * (this.pixelLength / 2)) - (this.odx * (this.pixelLength / 4)),
@@ -53,38 +57,40 @@ export default class Boid {
         ctx.fill();
     }
 
+    // factor all nearby boids into vectors that will be added to the current velocity
     update(others, obs, canvas) {
         let accelX = 0, accelY = 0;
-        //sight
+        //sight, determine what other boids need to be considered
         let canSeeBoid = [];
         for (let i = 0; i < others.length; i++) {
             if (this.#dist(others[i]) <= this.sight) {
                 canSeeBoid.push(others[i]);
             }
         }
+        // determine what obstacles need to be considered
         let canSeeOb = [];
         for (let i = 0; i < obs.length; i++) {
             if (this.#dist(obs[i]) <= this.sight) {
                 canSeeOb.push(obs[i]);
             }
         }
-        //coherence
+        //coherence, determine how much the boid should steer towards the flock's centroid
         let cSteering = this.#coherence(canSeeBoid);
         accelX += cSteering[0];
         accelY += cSteering[1];
-        //separation
+        //separation, determine how much the boid should steer away from other boids
         let sSteering = this.#separation(canSeeBoid);
         accelX += sSteering[0];
         accelY += sSteering[1];
-        //alignment
+        //alignment, determine how much the boid should steer to match the flock's average velocity
         let aSteering = this.#alignment(canSeeBoid);
         accelX += aSteering[0];
         accelY += aSteering[1];
-        //walls
+        //walls, determine how much the boid should steer to avoid the edges of the canvas
         let wSteering = this.#walls(canvas);
         accelX += wSteering[0];
         accelY += wSteering[1];
-        //obs
+        //obs, determine how much the boid should steer to avoid obstacles
         let oSteering = this.#obstacles(obs);
         accelX += oSteering[0];
         accelY += oSteering[1];
@@ -107,6 +113,7 @@ export default class Boid {
         return Math.min(Math.max(num, min), max);
     }
 
+    //helper to get the distance between this boid and another
     #dist(other) {
         let x = other.position[0];
         let y = other.position[1];
@@ -124,10 +131,13 @@ export default class Boid {
         return [xdiff, ydiff];
     }
 
+    // helper to normalize a vector
     #norm(v1) {
         return Math.sqrt(v1[0] * v1[0] + v1[1] * v1[1]);
     }
 
+    // computes the centroid of a list of boids and returns a vector pointing towards it.
+    // used for determining steering vector for cohesion
     #coherence(boids) {
         if (boids.length === 1) {
             return [0, 0];
@@ -154,6 +164,8 @@ export default class Boid {
         return steering;
     }
 
+    // computes the average of vectors pointing away from other boids and returns it.
+    // used for determining steering vector for separation
     #separation(boids) {
         if (boids.length === 1) {
             return [0, 0];
@@ -185,6 +197,8 @@ export default class Boid {
         return steering;
     }
 
+    // computes the average of vectors pointing in the same direction as other boids and returns it.
+    // used for determining steering vector for alignment
     #alignment(boids) {
         if (boids.length === 1) {
             return [0, 0];
@@ -210,6 +224,7 @@ export default class Boid {
         return steering;
     }
 
+    // computes the average of vectors pointing away from walls and returns it.
     #walls(canvas) {
         let w = canvas.width;
         let h = canvas.height;
@@ -229,6 +244,7 @@ export default class Boid {
         return result;
     }
 
+    // computes the average of vectors pointing away from obstacles and returns it.
     #obstacles(obs) {
         if (obs.length === 0) {
             return [0, 0];

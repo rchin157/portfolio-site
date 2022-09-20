@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./banner.css"
 
+// this functional component is used to render a pattern using a canvas for use as a page banner
 export default function Banner(props) {
     const canvasRef = useRef(null);
     let pattern = props.pattern;
@@ -17,6 +18,7 @@ export default function Banner(props) {
             isMobile = true;
         }
 
+        // used to properly size the canvas element on load as well as on resize
         function reset() {
             canvas = canvasRef.current;
             context = canvas.getContext('2d');
@@ -33,6 +35,7 @@ export default function Banner(props) {
             pattern.setup(canvas);
         }
 
+        // used to repeatedly draw the pattern
         function draw() {
             pattern.draw(context, canvas, requestId);
             requestId = requestAnimationFrame(draw);
@@ -43,6 +46,8 @@ export default function Banner(props) {
         }
         reset();
         draw();
+
+        // cleanup function
         return () => {
             cancelAnimationFrame(requestId);
             if(!isMobile) {
@@ -58,6 +63,7 @@ export default function Banner(props) {
     );
 }
 
+// used to get the pixel ratio of the device for proper scaling
 function getPixelRatio(ctx) {
     var dpr = window.devicePixelRatio || 1;
     var bsr = ctx.backingStorePixelRatio ||

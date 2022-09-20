@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Boids from "../BOIDProject/Manager";
 import { getProjs } from "../ProjectData/ProjData";
 
+// renders a list of all projects found in ProjData.js
 export default function Projects() {
     let projects = getProjs();
     return (

@@ -1,3 +1,4 @@
+// class representing a player in the game
 export default class Player {
     constructor(xHalf, yHalf) {
         this.x = 0;
@@ -26,6 +27,7 @@ export default class Player {
         if (this.lastTimeStamp === null) {
             this.lastTimeStamp = ts;
         }
+        // handle ongoing movement
         const timeElapsed = ts - this.lastTimeStamp;
         const prevXY = [this.previousHalf[0] === 0 ? size / 4 : 3 * size / 4, this.previousHalf[1] === 0 ? size / 4 : 3 * size / 4];
         const destXY = [this.destinationHalf[0] === 0 ? size / 4 : 3 * size / 4, this.destinationHalf[1] === 0 ? size / 4 : 3 * size / 4];
@@ -42,6 +44,7 @@ export default class Player {
             this.y = prevXY[1];
         }
         
+        // handle ongoing casting
         if (this.isCasting) {
             //draw cast bar
             if (this.castType === 0) {
@@ -50,6 +53,7 @@ export default class Player {
                 this.drawCastBar(3*size/4, 14*size/15, 2*size/5, size/20, this.castProg, this.castTime, ctx, 'aqua');
             }
             this.castProg += timeElapsed;
+            // if cast is finished trigger effect
             if (this.castProg >= this.castTime) {
                 this.isCasting = false;
                 this.castProg = 0;
@@ -62,6 +66,7 @@ export default class Player {
             }
         }
 
+        // draw player to canvas
         ctx.beginPath();
         ctx.arc(this.x, this.y, size / 32, 0, 2 * Math.PI);
         ctx.fillStyle = this.colour;
@@ -70,6 +75,7 @@ export default class Player {
         this.lastTimeStamp = ts;
     }
 
+    // trigger a move event
     move(xHalf, yHalf, time, ts) {
         if (this.isCasting) {
             this.isCasting = false;
@@ -84,6 +90,7 @@ export default class Player {
         }
     }
 
+    // trigger a filler cast event
     castFiller() {
         if (this.isMoving || (this.isCasting && this.castType === 0)) {
             return;
@@ -93,6 +100,7 @@ export default class Player {
         this.castProg = 0;
     }
 
+    // trigger a shield cast event
     castShield() {
         if (this.isMoving || (this.isCasting && this.castType === 1)) {
             return;
@@ -110,6 +118,7 @@ export default class Player {
         return [this.x, this.y];
     }
 
+    // handle incoming damage
     damage(hit) {
         this.health -= hit;
         //console.log(`new hp: ${this.health}`);
