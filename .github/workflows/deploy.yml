@@ -14,5 +14,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: 18.x
-    - run: npm install
-    - run: npm run deploy -- -m "Deployed site to github pages"
+    #- run: touch /home/runner/work/portfolio-site/portfolio-site/src/
+    - run: pwd
+    #- run: npm install
+    #- run: npm run deploy -- -m "Deployed site to github pages"
