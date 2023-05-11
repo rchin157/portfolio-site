@@ -6,12 +6,13 @@ on:
       - master
       
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     env:
       fbsecrets: ${{ secrets.FBSECRETS }}
     
     steps:
+    - name: setup
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
@@ -19,4 +20,9 @@ jobs:
     - run: touch src/data/secrets.js
     - run: echo -e "$fbsecrets" > src/data/secrets.js
     - run: npm install
+    - run: |
+       git config --global user.email "rchin@ualberta.ca"
+       git config --global user.name "Autodeploy"
+    
+    - name: run deploy
     - run: CI=false npm run deploy -- -m "Deployed site to github pages"
