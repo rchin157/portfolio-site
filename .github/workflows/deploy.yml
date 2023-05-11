@@ -22,4 +22,6 @@ jobs:
     - run: |
        git config --global user.email "rchin@ualberta.ca"
        git config --global user.name "Autodeploy"
-    - run: CI=false npm run deploy -- -m "Deployed site to github pages"
+    - run: CI=false npm run build
+    #- run: git push origin --delete gh-pages
+    - run: git push origin `git subtree split --prefix build master`:gh-pages --force
