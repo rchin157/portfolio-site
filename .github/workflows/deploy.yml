@@ -8,13 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      fbsecrets: ${{ secrets.FBSECRETS }}
     
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
         node-version: 18.x
-    #- run: touch /home/runner/work/portfolio-site/portfolio-site/src/
-    - run: pwd
-    #- run: npm install
-    #- run: npm run deploy -- -m "Deployed site to github pages"
+    - run: touch src/data/secrets.js
+    - run: echo -e "$fbsecrets" > src/data/secrets.js
+    - run: npm install
+    - run: npm run deploy -- -m "Deployed site to github pages"
