@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       firebase_secrets: ${{ secrets.FBSECRETS }}
+      pat: ${{ secrets.CROSS_REPO_PAT }}
     
     steps:
     - uses: actions/checkout@v2
@@ -25,5 +26,4 @@ jobs:
     - run: CI=false npm run build
     - run: git --work-tree build add --all
     - run: git commit -m "Automatic Deploy action run by github-actions"
-    - run: git remote add origin2 https://github.com/rchin157/rchin157.github.io.git
-    - run: git push origin2 HEAD:gh-pages --force
+    - run: git push https://rchin157:$pat@github.com/rchin157/rchin157.github.io.git HEAD:gh-pages --force
