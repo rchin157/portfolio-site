@@ -17,8 +17,7 @@ jobs:
       with:
         node-version: 18.x
     - run: touch src/data/secrets.js
-    - run: echo -e "$fbsecrets" > src/data/secrets.js
-    - run: npm i
+    - run: echo '$fbsecrets' > src/data/secrets.js
     - run: npm ci
     - run: |
        git config --global user.email "github-actions@github.com"
