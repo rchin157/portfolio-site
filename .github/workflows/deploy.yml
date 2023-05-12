@@ -23,6 +23,7 @@ jobs:
        git config --global user.email "github-actions@github.com"
        git config --global user.name "github-actions"
     - run: CI=false npm run build
-    - run : git --work-tree build add --all
-    - run : git commit -m "Automatic Deploy action run by github-actions"
-    - run : git push origin HEAD:gh-pages --force
+    - run: git --work-tree build add --all
+    - run: git commit -m "Automatic Deploy action run by github-actions"
+    - run: git remote add origin2 https://github.com/rchin157/rchin157.github.io.git
+    - run: git push origin2 HEAD:gh-pages --force
