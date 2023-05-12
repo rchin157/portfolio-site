@@ -13,17 +13,34 @@ jobs:
       pat: ${{ secrets.CROSS_REPO_PAT }}
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+      with:
+        path: dev
+    - uses: actions/checkout@v3
+      with:
+        repository: rchin157/rchin157.github.io
+        path: prod
+        token: $pat
     - uses: actions/setup-node@v1
       with:
         node-version: 18.x
-    - run: touch src/data/secrets.js
-    - run: echo "$firebase_secrets" > src/data/secrets.js
-    - run: npm ci
+    - run: |
+        cd dev
+        touch src/data/secrets.js
+        echo "$firebase_secrets" > src/data/secrets.js
+        npm ci
+        CI=false npm run build
     - run: |
        git config --global user.email "github-actions@github.com"
        git config --global user.name "github-actions"
-    - run: CI=false npm run build
-    - run: git --work-tree build add --all
-    - run: git commit -m "Automatic Deploy action run by github-actions"
-    - run: git push https://rchin157:$pat@github.com/rchin157/rchin157.github.io.git HEAD:gh-pages --force
+       
+    - run: |
+        rm -rf prod/*
+        cp dev/build/* prod/
+        cd prod
+        git add -A
+        git commit -m "Automatic Deploy action run by github-actions"
+        git push https://rchin157:$pat@github.com/rchin157/rchin157.github.io.git HEAD:gh-pages --force
+    #- run: git --work-tree build add --all
+    #- run: git commit -m "Automatic Deploy action run by github-actions"
+    #- run: git push https://rchin157:$pat@github.com/rchin157/rchin157.github.io.git HEAD:gh-pages --force
