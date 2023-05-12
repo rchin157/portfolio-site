@@ -8,18 +8,16 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+    env:
+      firebase_secrets: ${{ secrets.FBSECRETS }}
     
     steps:
-    - name: build-and-deploy
-      env:
-        firebase_secrets: ${{ secrets.FBSECRETS }}
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
         node-version: 18.x
     - run: touch src/data/secrets.js
-    - run: echo '$firebase_secrets' > src/data/secrets.js
+    - run: echo "$firebase_secrets" > src/data/secrets.js
     - run: npm ci
     - run: |
        git config --global user.email "github-actions@github.com"
