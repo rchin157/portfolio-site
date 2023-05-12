@@ -18,10 +18,14 @@ jobs:
         node-version: 18.x
     - run: touch src/data/secrets.js
     - run: echo -e "$fbsecrets" > src/data/secrets.js
-    - run: npm install
+    - run: npm i
+    - run: npm ci
     - run: |
-       git config --global user.email "rchin@ualberta.ca"
-       git config --global user.name "Autodeploy"
+       git config --global user.email "github-actions@github.com"
+       git config --global user.name "github-actions"
     - run: CI=false npm run build
     #- run: git push origin --delete gh-pages
-    - run: git push origin `git subtree split --prefix build master`:gh-pages --force
+    #- run: git push origin `git subtree split --prefix build master`:gh-pages --force
+    - run : git --work-tree build add --all
+    - run : git commit -m "Automatic Deploy action run by github-actions"
+    - run : git push origin HEAD:gh-pages --force
