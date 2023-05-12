@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/portfolio-site/static/css/main.b45dd29c.css",
+    "main.js": "/portfolio-site/static/js/main.020da912.js",
+    "static/js/787.37faa4c4.chunk.js": "/portfolio-site/static/js/787.37faa4c4.chunk.js",
+    "static/media/20220822_110747_thin.png": "/portfolio-site/static/media/20220822_110747_thin.9a22b8c3979c096b564c.png",
+    "static/media/ScolorShot.png": "/portfolio-site/static/media/ScolorShot.a685150d5a10f4450ceb.png",
+    "static/media/SgradShot.png": "/portfolio-site/static/media/SgradShot.f928f1923508f73483aa.png",
+    "static/media/clearanceCandidate.png": "/portfolio-site/static/media/clearanceCandidate.17afda9f7fe8c8cc9ae9.png",
+    "static/media/32dafaad-c032-4dd1-9d10-4dd607e6d179.pdf": "/portfolio-site/static/media/32dafaad-c032-4dd1-9d10-4dd607e6d179.ad7da5a85c0c7aa48cba.pdf",
+    "static/media/Nov29UML.png": "/portfolio-site/static/media/Nov29UML.34a3599c0a333ae8fc04.png",
+    "static/media/strimcurvature.png": "/portfolio-site/static/media/strimcurvature.09912142203229b963d0.png",
+    "static/media/strimlinearity.png": "/portfolio-site/static/media/strimlinearity.d3f826d32b6ddd7c813d.png",
+    "static/media/clearanceThumbnail.png": "/portfolio-site/static/media/clearanceThumbnail.82a6291fd0c0b3b0c081.png",
+    "static/media/storyboard.png": "/portfolio-site/static/media/storyboard.0db0295e0cc995252246.png",
+    "static/media/prototype.png": "/portfolio-site/static/media/prototype.6ded2ff0d15060fed7dd.png",
+    "static/media/gamejam-nov-2020.png": "/portfolio-site/static/media/gamejam-nov-2020.27f6955bba4bb87057c2.png",
+    "static/media/nsercjobscheduler.png": "/portfolio-site/static/media/nsercjobscheduler.c6ce97cfd20ef3a6ee95.png",
+    "static/media/leftview_at_285_units.png": "/portfolio-site/static/media/leftview_at_285_units.5e195fcbfbb7ff196bf2.png",
+    "static/media/rightview_at_285_units.png": "/portfolio-site/static/media/rightview_at_285_units.018239692b240d2f6dde.png",
+    "static/media/ceilingview_at_285_units.png": "/portfolio-site/static/media/ceilingview_at_285_units.01737c6996dd6d0aae41.png",
+    "static/media/BookApp.png": "/portfolio-site/static/media/BookApp.f85a9ef3e367c684767b.png",
+    "static/media/sideclearance_at_285_units.png": "/portfolio-site/static/media/sideclearance_at_285_units.4df010818832c9cca120.png",
+    "static/media/rightview_at_285_units_short_thumbnail.png": "/portfolio-site/static/media/rightview_at_285_units_short_thumbnail.b24672937ff463bab0a6.png",
+    "static/media/mechgame.png": "/portfolio-site/static/media/mechgame.322f9e70b6cc64e3c2d5.png",
+    "static/media/topclearance_at_285_units.png": "/portfolio-site/static/media/topclearance_at_285_units.13517e17a76555389f23.png",
+    "index.html": "/portfolio-site/index.html",
+    "static/media/handle.svg": "/portfolio-site/static/media/handle.1979a958022d52137ab8bc131b9789ec.svg",
+    "main.b45dd29c.css.map": "/portfolio-site/static/css/main.b45dd29c.css.map",
+    "main.020da912.js.map": "/portfolio-site/static/js/main.020da912.js.map",
+    "787.37faa4c4.chunk.js.map": "/portfolio-site/static/js/787.37faa4c4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b45dd29c.css",
+    "static/js/main.020da912.js"
+  ]
+}
