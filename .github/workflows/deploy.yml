@@ -21,7 +21,7 @@ jobs:
       with:
         repository: rchin157/rchin157.github.io
         path: prod
-        token: $pat
+        token: ${{ secrets.CROSS_REPO_PAT }}
     - uses: actions/setup-node@v1
       with:
         node-version: 18.x
