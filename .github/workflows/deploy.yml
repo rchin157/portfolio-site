@@ -11,6 +11,7 @@ jobs:
     env:
       firebase_secrets: ${{ secrets.FBSECRETS }}
       pat: ${{ secrets.CROSS_REPO_PAT }}
+      username: rchin157
     
     steps:
     - uses: actions/checkout@v3
@@ -40,7 +41,7 @@ jobs:
         cd prod
         git add -A
         git commit -m "Automatic Deploy action run by github-actions"
-        git push https://rchin157:$pat@github.com/rchin157/rchin157.github.io.git HEAD:gh-pages --force
+        git push https://$username:$pat@github.com/rchin157/rchin157.github.io.git HEAD:gh-pages --force
     #- run: git --work-tree build add --all
     #- run: git commit -m "Automatic Deploy action run by github-actions"
     #- run: git push https://rchin157:$pat@github.com/rchin157/rchin157.github.io.git HEAD:gh-pages --force
