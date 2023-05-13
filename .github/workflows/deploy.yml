@@ -34,7 +34,6 @@ jobs:
     - run: |
        git config --global user.email "github-actions@github.com"
        git config --global user.name "github-actions"
-       
     - run: |
         rm -rf prod/*
         cp dev/build/* prod/
@@ -42,6 +41,7 @@ jobs:
         git add -A
         git commit -m "Automatic Deploy action run by github-actions"
         git push https://$username:$pat@github.com/rchin157/rchin157.github.io.git HEAD:gh-pages --force
+        
     #- run: git --work-tree build add --all
     #- run: git commit -m "Automatic Deploy action run by github-actions"
     #- run: git push https://rchin157:$pat@github.com/rchin157/rchin157.github.io.git HEAD:gh-pages --force
