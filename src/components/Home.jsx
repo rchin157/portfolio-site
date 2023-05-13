@@ -110,7 +110,7 @@ export default function Home() {
                                     Matlab
                                 </li>
                                 <li className="list-item">
-                                    C
+                                    C/C++
                                 </li>
                                 <li className="list-item">
                                     SQL
@@ -134,6 +134,15 @@ export default function Home() {
                             <ul className="list-unstyled">
                                 <li className="list-item">
                                     React
+                                </li>
+                                <li className="list-item">
+                                    Django
+                                </li>
+                                <li className="list-item">
+                                    FastAPI
+                                </li>
+                                <li className="list-item">
+                                    Mongodb
                                 </li>
                                 <li className="list-item">
                                     Git
