@@ -36,7 +36,7 @@ jobs:
        git config --global user.name "github-actions"
     - run: |
         rm -rf prod/*
-        cp dev/build/* prod/
+        cp -r dev/build/* prod/
         cd prod
         git add -A
         git commit -m "Automatic Deploy action run by github-actions"
