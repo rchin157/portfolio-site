@@ -21,17 +21,35 @@ export default function Home() {
                             <h4>University of Alberta</h4>
                         </div>
                         <div className="col-12 col-lg-6">
-                            <h4 className="text-lg-end">Fall 2018-Present(Spring 2023 Graduation)</h4>
+                            <h4 className="text-lg-end">Fall 2018-Spring 2023</h4>
                         </div>
                     </div>
                     <p>
                         Bachelor of Science with Specialization<br />
                         Computing Science - Software Practice Specialization<br />
-                        Cumulative GPA: 3.86
+                        Cumulative GPA: 3.8
                     </p>
                 </div>
                 <div className="p-3">
                     <h1>Experience</h1>
+                    {/* NSERC grant position 2023 */}
+                    <div className="row">
+                        <div className="col-12 col-lg-4">
+                            <h4>Undergrad Researcher</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-center">University of Alberta</h4>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <h4 className="text-lg-end">May 2023-August 2023</h4>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>NSERC undergrad research grant position.</li>
+                        <li>Working with multiprocessor scheduling with testing algorithms.</li>
+                        <li>Empirical testing through implmentation and results gathering.</li>
+                    </ul>
+                    {/* SIP Internship */}
                     <div className="row">
                         <div className="col-12 col-lg-4">
                             <h4>Research Assistant</h4>
@@ -50,6 +68,7 @@ export default function Home() {
                         <li>Created a tool for computing pointcloud features such as planarity, gradient, etc.</li>
                         <li>Peer reviewed academic papers semi-regularly.</li>
                     </ul>
+                    {/* Various TA positions */}
                     <div className="row">
                         <div className="col-12 col-lg-4">
                             <h4>Computer Science Undergrad TA</h4>
@@ -67,6 +86,7 @@ export default function Home() {
                         <li>Wrote and/or co-wrote major algorithm assignment solutions (CMPUT 201).</li>
                         <li>Assisted 100+ students via class forums.</li>
                     </ul>
+                    {/* NSERC grant position 2020 */}
                     <div className="row">
                         <div className="col-12 col-lg-4">
                             <h4>Undergrad Researcher</h4>
@@ -86,7 +106,7 @@ export default function Home() {
                         </li>
                         <li>Optimized for different aspects such as memory and runtime.</li>
                         <li>Supervised junior team member who particpated as part of the Highschool Internship Program.</li>
-                        <li>The paper went on to be published and can be viewed 
+                        <li>The paper went on to be published and can be viewed
                             <a href={nsercrapaper} target="_blank" rel="noopener noreferrer"> here</a>.
                         </li>
                     </ul>
@@ -169,7 +189,7 @@ export default function Home() {
                                     General Linux
                                 </li>
                                 <li className="list-item">
-                                    
+
                                 </li>
                             </ul>
                         </div>
