@@ -10,8 +10,8 @@ export default function About() {
                 <div className="pt-3">
                     <p>
                         Hello, I'm a recent Computing Science graduate from the University of Alberta.
-                        I'm currently working as a research assistant for one last grant position at the UofA and
-                        am looking for full-time employment in industry this coming fall.
+                        I'm currently looking for my first job as a fresh grad and am excited to gain
+                        more industry experience.
                     </p>
                     <h5>Location</h5>
                     <p>Edmonton, Alberta, Canada</p>

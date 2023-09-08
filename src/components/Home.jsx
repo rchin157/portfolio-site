@@ -47,7 +47,7 @@ export default function Home() {
                     <ul>
                         <li>NSERC undergrad research grant position.</li>
                         <li>Working with multiprocessor scheduling with testing algorithms.</li>
-                        <li>Empirical testing through implmentation and results gathering.</li>
+                        <li>Worked on improving theoretical bounds and exploring the application of other algorithms.</li>
                     </ul>
                     {/* SIP Internship */}
                     <div className="row">
