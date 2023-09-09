@@ -9,9 +9,9 @@ export default function About() {
             <div className="container">
                 <div className="pt-3">
                     <p>
-                        Hello, my name is Rylan Chin. I'm a student at the University of Alberta in my final year of Computing Science.
-                        I spent the last academic year on internship as a research assistant as part of a team from the faculty of civil engineering.
-                        I'm currently looking for full-time employment in industry this coming spring.
+                        Hello, I'm a recent Computing Science graduate from the University of Alberta.
+                        I'm currently looking for my first job as a fresh grad and am excited to gain
+                        more industry experience.
                     </p>
                     <h5>Location</h5>
                     <p>Edmonton, Alberta, Canada</p>
