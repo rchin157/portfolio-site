@@ -82,7 +82,7 @@ export default function Home() {
                     </div>
                     <ul>
                         <li>Served as a teaching assistant for CMPUT 175 and 201, focusing on fundamentals and C programming respectively.</li>
-                        <li>Instructed lab sessions and provided help with programming excercises to students.</li>
+                        <li>Instructed lab sessions and provided help with programming exercises to students.</li>
                         <li>Wrote and/or co-wrote major algorithm assignment solutions (CMPUT 201).</li>
                         <li>Assisted 100+ students via class forums.</li>
                     </ul>
